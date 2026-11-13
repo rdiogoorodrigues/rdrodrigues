@@ -92,6 +92,7 @@
   "sensibilidade": {
     "_nota": "Monte Carlo sobre os coeficientes (multiplicador uniforme 1 ± amplitude, preservando a ordem forte > moderada > fraca, + < ++ < +++, menor < moderado < major) e sobre as gravidades que usaram o valor por defeito (uniforme no intervalo). Semente fixa: resultados reprodutíveis.",
     "n": 500,
+    "n_ui": 300,
     "semente": 20261113,
     "amplitudes": {
       "forca_peso": 0.3,

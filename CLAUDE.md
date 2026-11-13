@@ -31,13 +31,14 @@ src/engine/        motor puro: sem DOM, sem I/O, kb/config injetados; testável 
   sensitivity.js     Monte Carlo + tornado sobre coeficientes e gravidades por defeito
 scripts/           exportar-delphi.js (questionário RAND/UCLA), sensibilidade.js (relatório)
 docs/validacao/    protocolo de validação, relatório de sensibilidade, CSV Delphi
-src/ui/            interface (vanilla JS, ES modules)
+src/ui/            interface (vanilla JS, ES modules): estado.js, vistas/ (rede3d, prioridade3d, lista), paineis/ (ranking, detalhe, alertas, avancado)
 src/cases/         casos de teste pré-carregados (A, B)
 tests/             node --test
 build.js           gera dist/mapa-causal.html com tudo inline (esbuild)
 ```
 
 ## Convenções
+- Dependências: versões exatas com ≥ 2 semanas; transitivas recentes fixadas em `overrides` no package.json.
 - O motor nunca importa nada de `src/ui` nem usa APIs do browser. O browser e os testes chamam `analisar(caso, kb, config)` de `src/engine/index.js`.
 - Coeficientes numéricos **só** em `config.json` ou nas tabelas da KB, nunca hard-coded no motor.
 - Qualquer entrada sem referência verificada leva `"a_validar": true`.
@@ -49,7 +50,8 @@ build.js           gera dist/mapa-causal.html com tudo inline (esbuild)
 
 ## Comandos
 - `npm test`: testes do motor e dos casos A/B (correr no fim de cada fase).
-- `npm run build`: gera `dist/mapa-causal.html`.
+- `npm run build`: gera `dist/mapa-causal.html` (`build:dev` sem minificação).
+- `npm run verificar-ui`: build + Playwright offline (falha com qualquer pedido de rede ou erro de consola); capturas em `docs/capturas/`.
 - `npm run sensibilidade`: regenera `docs/validacao/sensibilidade.md` (correr após mudar KB/config).
 - `npm run delphi`: regenera os CSV do Delphi a partir da KB.
 - Quando um item é validado em Delphi: `"a_validar": false` + `"validado": "Delphi R<n>, mediana <m>"`.

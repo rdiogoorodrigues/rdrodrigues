@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Mapa Causal do Utente</title>
+<style>/*__CSS__*/</style>
+</head>
+<body>
+<a class="saltar" href="#principal">Saltar para o conteúdo</a>
+<header class="topo">
+  <div class="aviso" role="note">
+    <strong>Ferramenta de apoio à decisão; não substitui o juízo clínico.</strong>
+    <span>Protótipo de investigação — coeficientes do motor não validados. Os dados nunca saem deste computador.</span>
+  </div>
+  <div class="barra">
+    <h1>Mapa Causal do Utente</h1>
+    <div class="controlos">
+      <label>Caso
+        <select id="sel-caso"></select>
+      </label>
+      <button type="button" id="btn-importar">Importar JSON</button>
+      <input type="file" id="ficheiro" accept="application/json,.json" hidden>
+      <button type="button" id="btn-exportar">Exportar JSON</button>
+      <span id="estado-rascunho" class="discreto" aria-live="polite"></span>
+    </div>
+    <nav class="separadores" role="tablist" aria-label="Vistas">
+      <button role="tab" id="tab-rede" data-vista="rede" aria-controls="vista-rede">Rede causal 3D</button>
+      <button role="tab" id="tab-prioridade" data-vista="prioridade" aria-controls="vista-prioridade">Espaço de prioridade 3D</button>
+      <button role="tab" id="tab-lista" data-vista="lista" aria-controls="vista-lista">Lista (2D acessível)</button>
+    </nav>
+  </div>
+  <div id="alertas" class="alertas" aria-live="polite"></div>
+</header>
+<main id="principal" class="grelha">
+  <aside class="painel" aria-labelledby="titulo-ranking">
+    <h2 id="titulo-ranking">Intervenções priorizadas</h2>
+    <div id="ranking"></div>
+  </aside>
+  <section class="centro" aria-label="Visualização">
+    <div id="vista-rede" class="vista" role="tabpanel" aria-labelledby="tab-rede"></div>
+    <div id="vista-prioridade" class="vista" role="tabpanel" aria-labelledby="tab-prioridade" hidden></div>
+    <div id="vista-lista" class="vista vista-lista" role="tabpanel" aria-labelledby="tab-lista" hidden tabindex="0"></div>
+  </section>
+  <aside class="painel" aria-labelledby="titulo-detalhe">
+    <h2 id="titulo-detalhe">Detalhe</h2>
+    <div id="detalhe" aria-live="polite"></div>
+  </aside>
+</main>
+<footer class="rodape">
+  <details id="avancado">
+    <summary>Painel avançado — coeficientes do motor (a validar)</summary>
+    <div id="painel-avancado"></div>
+  </details>
+</footer>
+<script>/*__JS__*/</script>
+</body>
+</html>
