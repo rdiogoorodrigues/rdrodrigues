@@ -64,7 +64,16 @@ Ensaio pragmático aleatorizado por cluster (USF). Desfechos de processo: propor
 4. As sinergias entre intervenções estão representadas apenas qualitativamente (p. ex. TCC-I facilita a desprescrição de BZD).
 5. A estrutura do grafo vem de evidência populacional; a heterogeneidade individual é captada só pelos modificadores.
 
-## 5. Ancoragem empírica prevista (etapa 2)
+## 5. Ancoragem empírica (etapa 2)
+
+**Feito (2026-11-13): disability weights do GBD 2013.** A Tabela 2 de Salomon 2015 foi transcrita para `src/kb/disability_weights.json` (48 estados relevantes, com IC 95 %) e mapeada para 18 nós sintomáticos. Transformação g = DW^γ, ancorada na mediana dos 235 estados (0,128 → 0,5). Ativa-se com `config.gravidade.fonte_sintomatica = "gbd2013"`; na análise de sensibilidade, o DW é amostrado (triangular) no IC 95 % publicado.
+
+- **Resultado nos casos A e B:** τ de Kendall entre modos de 0,96 e 1,00; os critérios clínicos mantêm-se. Ancorar a gravidade sintomática em dados empíricos não altera as decisões de topo.
+- **Limitação:** só 2 nós por caso são mapeáveis. O teste é fraco para casos dominados por doença mental, DPOC ou demência, onde o GBD atribui DW muito superiores aos da IC (p. ex. depressão moderada 0,396 vs IC moderada 0,072).
+- **A validar:** a correspondência nível clínico ↔ estado GBD (p. ex. NYHA III = IC moderada) foi inferida sem as descrições leigas do apêndice. Itens D001–D018 no questionário Delphi.
+- **Pendente:** comparar com os DW do GBD 2019/2021, se disponíveis.
+
+Restantes ancoragens previstas:
 
 | Parâmetro | Fonte candidata |
 |---|---|

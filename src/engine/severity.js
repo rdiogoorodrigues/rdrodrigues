@@ -84,3 +84,41 @@ export function gravidadesPorModificador(caso, sev, subtipos = {}) {
 export function nosInstanciadosPorParametro(sev) {
   return new Set(sev.tabelas.filter((t) => t.instancia_se).map((t) => t.no));
 }
+
+/** DW → gravidade 0–1 (transformação potência ancorada na mediana do GBD). */
+export function dwParaGravidade(dw, dwKB) {
+  return limitar(dw ** dwKB.gama);
+}
+
+/** Nível GBD de um problema: manual (problema.nivel) > regra por parâmetro > nível por defeito. */
+export function nivelGBD(mapa, problema, parametros) {
+  if (problema?.nivel && mapa.niveis[problema.nivel]) return { nivel: problema.nivel, origem: 'manual' };
+  const v = mapa.parametro ? parametros?.[mapa.parametro] : null;
+  if (v != null && v !== '' && mapa.regras) {
+    const r = mapa.regras.find(([min]) => Number(v) >= min);
+    if (r) return { nivel: r[1], origem: 'parametro', parametro: mapa.parametro, valor: v };
+  }
+  return { nivel: mapa.nivel_por_defeito, origem: 'defeito' };
+}
+
+/**
+ * Gravidade ancorada nos disability weights do GBD, para os nós sintomáticos declarados.
+ * @returns Map<noId, {gravidade, dw, ui, g_ui, estado, rotulo_gbd, nivel, origem_nivel}>
+ */
+export function gravidadesGBD(caso, dwKB) {
+  const out = new Map();
+  if (!dwKB) return out;
+  for (const p of caso.problemas ?? []) {
+    const mapa = dwKB.porNo.get(p.id);
+    if (!mapa) continue;
+    const nv = nivelGBD(mapa, p, caso.parametros);
+    const idEstado = mapa.niveis[nv.nivel];
+    const e = dwKB.estados[idEstado];
+    out.set(p.id, {
+      tabela: 'gbd2013', gravidade: dwParaGravidade(e.dw, dwKB), dw: e.dw, ui: e.ui,
+      g_ui: e.ui.map((x) => dwParaGravidade(x, dwKB)), estado: idEstado, rotulo_gbd: e.rotulo_gbd,
+      nivel: nv.nivel, origem_nivel: nv.origem, parametro: nv.parametro ?? null, valor: nv.valor ?? null,
+    });
+  }
+  return out;
+}

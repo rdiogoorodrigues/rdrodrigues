@@ -81,3 +81,47 @@ Gravidades por defeito (dados não medidos): Hipertensão arterial, Insuficiênc
 | centralidade | coeficiente | 0,13 | não |
 | Insuficiência cardíaca | gravidade não medida | 0,13 | não |
 
+## Comparação: tabelas vs disability weights do GBD 2013
+
+Modo GBD: os nós sintomáticos mapeados em `disability_weights.json` usam g = DW^γ (γ = 0,34, mediana GBD 0,128 → 0,5); na sensibilidade, o DW é amostrado no IC 95 % publicado. Nós prognósticos inalterados.
+
+### Caso A — homem, 62 anos, síndrome metabólica com gonartrose
+
+τ de Kendall entre modos: **0,96**.
+
+| Nó | Gravidade (tabelas) | Estado GBD | DW (IC 95 %) | Gravidade (GBD) | Nível |
+|---|---|---|---|---|---|
+| Gonartrose | 0,5 | Musculoskeletal problems: legs, moderate | 0,08 (0,05–0,11) | 0,42 | moderado (por defeito) |
+| Depressão | 0,33 | Major depressive disorder, mild episode | 0,15 (0,1–0,21) | 0,52 | ligeiro |
+
+| # | Tabelas | GBD | GBD: P5–P95 | GBD: top 3 |
+|---|---|---|---|---|
+| 1 | Agonista GLP-1 / GIP-GLP-1 (semaglutido, tirzepatido) | Agonista GLP-1 / GIP-GLP-1 (semaglutido, tirzepatido) | 1–3 | 100 % |
+| 2 | Exercício físico prescrito (aeróbio + força + equilíbrio) | Exercício físico prescrito (aeróbio + força + equilíbrio) | 1–2 | 100 % |
+| 3 | Programa estruturado de perda ponderal | Programa estruturado de perda ponderal | 2–3 | 100 % |
+| 4 | Suspender AINE crónico | Suspender AINE crónico | 4–6 | 0 % |
+| 5 | Estatina | CPAP | 4–6 | 0 % |
+| 6 | CPAP | Estatina | 4–7 | 0 % |
+| 7 | Inibidor do SGLT2 (dapagliflozina, empagliflozina) | Inibidor do SGLT2 (dapagliflozina, empagliflozina) | 6–8 | 0 % |
+| 8 | Antidepressivo | Antidepressivo | 7–9 | 0 % |
+| 9 | Educação terapêutica | Educação terapêutica | 8–9 | 0 % |
+| 10 | IECA / ARA | IECA / ARA | 10–10 | 0 % |
+
+### Caso B — mulher, 81 anos, frágil (CFS 6), IC-FEr e DRC G3b
+
+τ de Kendall entre modos: **1**.
+
+| Nó | Gravidade (tabelas) | Estado GBD | DW (IC 95 %) | Gravidade (GBD) | Nível |
+|---|---|---|---|---|---|
+| Insuficiência cardíaca | 0,5 | Heart failure, moderate | 0,07 (0,05–0,1) | 0,41 | moderado (por defeito) |
+| Gonartrose | 0,5 | Musculoskeletal problems: legs, moderate | 0,08 (0,05–0,11) | 0,42 | moderado (por defeito) |
+
+| # | Tabelas | GBD | GBD: P5–P95 | GBD: top 3 |
+|---|---|---|---|---|
+| 1 | Suspender AINE crónico | Suspender AINE crónico | 1–2 | 100 % |
+| 2 | Exercício físico prescrito (aeróbio + força + equilíbrio) | Exercício físico prescrito (aeróbio + força + equilíbrio) | 1–2 | 100 % |
+| 3 | Desprescrição de benzodiazepinas / hipnóticos Z | Desprescrição de benzodiazepinas / hipnóticos Z | 3–3 | 100 % |
+| 4 | Estatina | Estatina | 4–6 | 0 % |
+| 5 | Inibidor do SGLT2 (dapagliflozina, empagliflozina) | Inibidor do SGLT2 (dapagliflozina, empagliflozina) | 4–6 | 0 % |
+| 6 | Terapia cognitivo-comportamental para a insónia (TCC-I) | Terapia cognitivo-comportamental para a insónia (TCC-I) | 4–6 | 0 % |
+

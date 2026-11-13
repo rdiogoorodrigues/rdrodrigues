@@ -7,6 +7,7 @@ import severity from './severity_tables.json' with { type: 'json' };
 import drugs from './drugs.json' with { type: 'json' };
 import alerts from './alerts.json' with { type: 'json' };
 import config from './config.json' with { type: 'json' };
+import dw from './disability_weights.json' with { type: 'json' };
 
-export const kbBruta = { nodes, edges, interventions, references, severity, drugs, alerts };
+export const kbBruta = { nodes, edges, interventions, references, severity, drugs, alerts, dw };
 export const configPorDefeito = config;

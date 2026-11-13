@@ -44,6 +44,18 @@ export function prepararKB(bruta) {
     severidade: bruta.severity,
     farmacos: { classes: bruta.drugs.classes, dci },
     alertas: bruta.alerts.alertas,
+    dw: prepararDW(bruta.dw),
+  };
+}
+
+/** Disability weights (GBD): índice por nó e expoente da transformação DW → gravidade. */
+function prepararDW(dw) {
+  if (!dw) return null;
+  const { ancora_dw, ancora_g } = dw.transformacao;
+  return {
+    ...dw,
+    gama: Math.log(ancora_g) / Math.log(ancora_dw),
+    porNo: new Map(dw.mapeamentos.map((m) => [m.no, m])),
   };
 }
 
@@ -95,6 +107,19 @@ export function validarKB(kb) {
     (a.refs ?? []).forEach((r) => refOk(r, `alerta ${a.id}`));
   }
   for (const t of kb.severidade.tabelas) noOk(t.no, `tabela ${t.id}`);
+  if (kb.dw) {
+    if (!kb.referencias[kb.dw.fonte]) erros.push(`disability weights: fonte '${kb.dw.fonte}' desconhecida`);
+    for (const [id, e] of Object.entries(kb.dw.estados)) {
+      if (!(e.dw > 0 && e.dw < 1)) erros.push(`DW ${id}: valor inválido`);
+      if (!(e.ui[0] <= e.dw && e.dw <= e.ui[1])) erros.push(`DW ${id}: estimativa fora do IC`);
+    }
+    for (const m of kb.dw.mapeamentos) {
+      noOk(m.no, `mapeamento DW`);
+      if (!m.niveis[m.nivel_por_defeito]) erros.push(`mapeamento DW ${m.no}: nível por defeito inválido`);
+      for (const [nv, est] of Object.entries(m.niveis)) if (!kb.dw.estados[est]) erros.push(`mapeamento DW ${m.no}/${nv}: estado '${est}' desconhecido`);
+      for (const [, nv] of m.regras ?? []) if (!m.niveis[nv]) erros.push(`mapeamento DW ${m.no}: regra para nível '${nv}' inexistente`);
+    }
+  }
   return erros;
 }
 

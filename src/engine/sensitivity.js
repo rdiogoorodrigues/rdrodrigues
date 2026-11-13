@@ -10,6 +10,7 @@
 //    gravidade por defeito nos extremos. Identifica o que mais muda a ordem — inclusive QUE DADO
 //    CLÍNICO vale a pena medir (valor da informação).
 import { analisar } from './index.js';
+import { dwParaGravidade } from './severity.js';
 
 /** PRNG determinístico (mulberry32). */
 export function prng(semente) {
@@ -97,7 +98,42 @@ function percentil(ordenado, p) {
 
 /** Nós cuja gravidade veio do valor por defeito (dado clínico não medido). */
 export function nosComGravidadePorDefeito(base) {
-  return [...base.grafo.nos.values()].filter((n) => n.origem_gravidade === 'defeito' && n.declarado && !n.recurso).map((n) => n.id);
+  return [...base.grafo.nos.values()].filter((n) => ['defeito', 'gbd_nivel_defeito'].includes(n.origem_gravidade) && n.declarado && !n.recurso).map((n) => n.id);
+}
+
+/** Amostra triangular (mín, moda, máx). */
+function triangular(rnd, a, m, b) {
+  const u = rnd();
+  const c = (m - a) / (b - a || 1);
+  return u < c ? a + Math.sqrt(u * (b - a) * (m - a)) : b - Math.sqrt((1 - u) * (b - a) * (b - m));
+}
+
+/**
+ * Fontes de incerteza nas gravidades, por nó:
+ *  - 'defeito'            gravidade por defeito (dado não medido) ~ U(intervalo do config)
+ *  - 'gbd_nivel_defeito'  nível GBD não determinado → nível ~ uniforme entre níveis; DW ~ triangular no IC 95 %
+ *  - 'gbd_ic'             nível GBD conhecido → DW ~ triangular no IC 95 % (incerteza empírica do GBD)
+ */
+export function incertezasGravidade(base, kb, cfg) {
+  const [glo, ghi] = cfg.sensibilidade.gravidade_defeito_intervalo;
+  const out = [];
+  for (const n of base.grafo.nos.values()) {
+    if (!n.declarado || n.recurso) continue;
+    if (n.origem_gravidade === 'defeito') {
+      out.push({ id: n.id, tipo: 'defeito', lo: glo, hi: ghi, amostrar: (r) => glo + (ghi - glo) * r() });
+    } else if (n.origem_gravidade === 'gbd_nivel_defeito' || n.origem_gravidade === 'gbd') {
+      const mapa = kb.dw.porNo.get(n.id);
+      const estados = n.origem_gravidade === 'gbd' ? [n.gbd.estado] : [...new Set(Object.values(mapa.niveis))];
+      const es = estados.map((e) => kb.dw.estados[e]);
+      const g = (x) => dwParaGravidade(x, kb.dw);
+      out.push({
+        id: n.id, tipo: n.origem_gravidade === 'gbd' ? 'gbd_ic' : 'gbd_nivel_defeito',
+        lo: g(Math.min(...es.map((e) => e.ui[0]))), hi: g(Math.max(...es.map((e) => e.ui[1]))),
+        amostrar: (r) => { const e = es[Math.floor(r() * es.length)]; return g(triangular(r, e.ui[0], e.dw, e.ui[1])); },
+      });
+    }
+  }
+  return out;
 }
 
 function casoComGravidades(caso, gravs) {
@@ -125,6 +161,7 @@ export function analisarSensibilidade(caso, kb, config, opcoes = {}) {
   const base = analisar(caso, kb, config);
   const ordemBase = base.ranking.map((r) => r.id);
   const incertos = nosComGravidadePorDefeito(base);
+  const incertezas = incertezasGravidade(base, kb, config);
 
   const posicoes = new Map(ordemBase.map((id) => [id, []]));
   const pontuacoes = new Map(ordemBase.map((id) => [id, []]));
@@ -139,8 +176,8 @@ export function analisarSensibilidade(caso, kb, config, opcoes = {}) {
       }
     }
     let c = caso;
-    if (modo !== 'coeficientes' && incertos.length) {
-      c = casoComGravidades(caso, Object.fromEntries(incertos.map((id) => [id, glo + (ghi - glo) * rnd()])));
+    if (modo !== 'coeficientes' && incertezas.length) {
+      c = casoComGravidades(caso, Object.fromEntries(incertezas.map((x) => [x.id, x.amostrar(rnd)])));
     }
     const r = analisar(c, kb, cfg);
     const ordem = r.ranking.map((x) => x.id);
@@ -173,17 +210,19 @@ export function analisarSensibilidade(caso, kb, config, opcoes = {}) {
     n, semente, modo, amplitudes, intervalo_gravidade_defeito: [glo, ghi],
     ordem_base: ordemBase,
     nos_gravidade_por_defeito: incertos,
+    incertezas_gravidade: incertezas.map(({ id, tipo, lo, hi }) => ({ id, tipo, lo, hi })),
+    fonte_sintomatica: config.gravidade.fonte_sintomatica,
     intervencoes,
     kendall_tau: { media: taus.reduce((s, t) => s + t, 0) / (taus.length || 1), p5: percentil(tausOrd, p5), mediana: percentil(tausOrd, 50) },
     p_mesmo_top1: intervencoes[0]?.p_top1 ?? null,
   };
-  if (opcoes.tornado !== false) resultado.tornado = tornado(caso, kb, config, { base, ordemBase, amplitudes, incertos, glo, ghi });
+  if (opcoes.tornado !== false) resultado.tornado = tornado(caso, kb, config, { base, ordemBase, amplitudes, incertezas });
   return resultado;
 }
 
 /** Análise um-fator-de-cada-vez. Ordenada por influência (1 − τ mínimo). */
 export function tornado(caso, kb, config, ctx) {
-  const { ordemBase, amplitudes, incertos, glo, ghi } = ctx;
+  const { ordemBase, amplitudes, incertezas } = ctx;
   const top1 = ordemBase[0];
   const avaliar = (c, cfg) => {
     const ordem = analisar(c, kb, cfg).ranking.map((x) => x.id);
@@ -200,9 +239,10 @@ export function tornado(caso, kb, config, ctx) {
     });
     linhas.push({ fator: nome, tipo: 'coeficiente', baixo: r[0], alto: r[1] });
   }
-  for (const id of incertos) {
-    const r = [glo, ghi].map((g) => avaliar(casoComGravidades(caso, { [id]: g }), config));
-    linhas.push({ fator: id, tipo: 'gravidade_por_defeito', rotulo: kb.nos.get(id)?.rotulo, baixo: r[0], alto: r[1] });
+  for (const x of incertezas) {
+    const r = [x.lo, x.hi].map((g) => avaliar(casoComGravidades(caso, { [x.id]: g }), config));
+    const tipo = x.tipo === 'gbd_ic' ? 'incerteza_gbd' : 'gravidade_por_defeito';
+    linhas.push({ fator: x.id, tipo, subtipo: x.tipo, rotulo: kb.nos.get(x.id)?.rotulo, baixo: r[0], alto: r[1] });
   }
   for (const l of linhas) {
     l.influencia = 1 - Math.min(l.baixo.tau, l.alto.tau);

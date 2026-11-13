@@ -26,6 +26,7 @@ src/kb/*.json      base de conhecimento editável (separada do código)
   drugs.json         DCI → classe
   alerts.json        regras de alertas de combinação
   config.json        TODOS os coeficientes do motor (a_validar)
+  disability_weights.json  DW do GBD 2013 (Salomon 2015, Tabela 2) + mapeamento nível clínico → estado GBD (a_validar)
 src/engine/        motor puro: sem DOM, sem I/O, kb/config injetados; testável em Node
   sensitivity.js     Monte Carlo + tornado sobre coeficientes e gravidades por defeito
 scripts/           exportar-delphi.js (questionário RAND/UCLA), sensibilidade.js (relatório)
@@ -42,6 +43,7 @@ build.js           gera dist/mapa-causal.html com tudo inline (esbuild)
 - Qualquer entrada sem referência verificada leva `"a_validar": true`.
 - Ligações referem nós por `id`; os subtipos (p. ex. `ic` FEr/FEp) usam o campo `subtipo` e não ids novos.
 - Os nós de tipo `risco` (eventos_cv, quedas, lesao_renal, …) são instanciados automaticamente quando há um progenitor presente, com gravidade derivada.
+- Gravidade dos nós sintomáticos: `config.gravidade.fonte_sintomatica` = `tabelas` (defeito) ou `gbd2013`. Nós prognósticos (DM2, HTA, DRC/KDIGO, risco CV, obesidade) usam sempre as tabelas de risco.
 - Na UI, os números usam vírgula decimal (`Intl.NumberFormat('pt-PT')`).
 - localStorage serve apenas de rascunho e é sempre envolvido em try/catch. Persistência real = exportar/importar JSON.
 

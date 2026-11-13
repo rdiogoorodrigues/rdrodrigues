@@ -62,7 +62,21 @@ for (const t of kbBruta.severity.tabelas) {
   });
 }
 
-// 4. Coeficientes do motor
+// 4. Mapeamento nível clínico → estado GBD (disability weights)
+i = 0;
+const dwB = kbBruta.dw;
+for (const m of dwB.mapeamentos) {
+  const niveis = Object.entries(m.niveis).map(([nv, e]) => `${nv}: ${dwB.estados[e].rotulo_gbd} (DW ${dwB.estados[e].dw})`).join(' · ');
+  add({
+    id: `D${String(++i).padStart(3, '0')}`, seccao: 'Mapeamento GBD',
+    item: `${rot(m.no)}${m._regras ? ` — ${m._regras}` : m.parametro ? ` — por ${m.parametro}` : ''}`,
+    proposta: `${niveis} · nível por defeito: ${m.nivel_por_defeito}`, evidencia: 'GBD 2013', pmids: pmids([dwB.fonte]),
+    a_validar: true, origem: 'desenho',
+    pergunta: 'A correspondência entre a escala clínica e o estado GBD é adequada? (1–9)',
+  });
+}
+
+// 5. Coeficientes do motor
 i = 0;
 const cfg = configPorDefeito;
 const coef = [

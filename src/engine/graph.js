@@ -1,6 +1,6 @@
 // Instanciação do grafo causal do utente a partir do caso e da KB.
 import { normalizar, limitar, ajustarForca, combinar } from './util.js';
-import { gravidadesPorModificador, nosInstanciadosPorParametro } from './severity.js';
+import { gravidadesPorModificador, nosInstanciadosPorParametro, gravidadesGBD } from './severity.js';
 
 /** Classe farmacológica de cada linha de medicação (estado ≠ suspenso). */
 export function classificarMedicacao(caso, kb) {
@@ -83,11 +83,21 @@ export function construirGrafo(caso, kb, cfg) {
     if (modif.has(id) && !nos.has(id)) declarar(id);
   }
 
-  // 4. Gravidade dos nós declarados: manual > modificador > defeito
+  // 4. Gravidade dos nós declarados: manual > [GBD, se ativo, nos nós sintomáticos] > modificador > defeito
+  const modoGBD = cfg.gravidade.fonte_sintomatica === 'gbd2013';
+  const gbd = modoGBD ? gravidadesGBD(caso, kb.dw) : new Map();
   for (const n of nos.values()) {
     const m = modif.get(n.id);
     if (m) n.fontes = m.fontes;
+    const gb = gbd.get(n.id);
+    if (gb) n.fontes = [...n.fontes, gb];
     if (n.origem_gravidade === 'manual') continue;
+    if (gb) {
+      n.gravidade = gb.gravidade;
+      n.origem_gravidade = gb.origem_nivel === 'defeito' ? 'gbd_nivel_defeito' : 'gbd';
+      n.gbd = gb;
+      continue;
+    }
     if (m) { n.gravidade = m.gravidade; n.origem_gravidade = 'modificador'; }
     else { n.gravidade = gravidadeDefeito(n.tipo, cfg); n.origem_gravidade = 'defeito'; }
     const kd = m?.fontes.find((f) => f.tabela === 'kdigo');
