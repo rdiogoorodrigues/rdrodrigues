@@ -70,7 +70,7 @@ for (const m of dwB.mapeamentos) {
   add({
     id: `D${String(++i).padStart(3, '0')}`, seccao: 'Mapeamento GBD',
     item: `${rot(m.no)}${m._regras ? ` — ${m._regras}` : m.parametro ? ` — por ${m.parametro}` : ''}`,
-    proposta: `${niveis} · nível por defeito: ${m.nivel_por_defeito}`, evidencia: 'GBD 2013', pmids: pmids([dwB.fonte]),
+    proposta: `${niveis} · nível por defeito: ${m.nivel_por_defeito}`, evidencia: `GBD 2013. ${m.justificacao ?? ''}`, pmids: pmids([dwB.fonte]),
     a_validar: true, origem: 'desenho',
     pergunta: 'A correspondência entre a escala clínica e o estado GBD é adequada? (1–9)',
   });

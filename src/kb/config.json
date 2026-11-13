@@ -27,8 +27,8 @@
   },
 
   "gravidade": {
-    "fonte_sintomatica": "tabelas",
-    "_fonte_sintomatica": "'tabelas' = tabelas de severity_tables.json; 'gbd2013' = disability weights do GBD 2013 (Salomon 2015) para os nós sintomáticos mapeados em disability_weights.json. Os nós prognósticos mantêm sempre as tabelas.",
+    "fonte_sintomatica": "gbd2013",
+    "_fonte_sintomatica": "'gbd2013' (defeito por decisão clínica, 2026-11-13) = disability weights do GBD 2013 (Salomon 2015) para os nós sintomáticos mapeados em disability_weights.json; 'tabelas' = tabelas de severity_tables.json. Os nós prognósticos mantêm sempre as tabelas de risco.",
     "por_defeito": 0.5,
     "medicacao_por_defeito": 0.5,
     "determinante_por_defeito": 0.5,

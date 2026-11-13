@@ -70,7 +70,10 @@ Ensaio pragmático aleatorizado por cluster (USF). Desfechos de processo: propor
 
 - **Resultado nos casos A e B:** τ de Kendall entre modos de 0,96 e 1,00; os critérios clínicos mantêm-se. Ancorar a gravidade sintomática em dados empíricos não altera as decisões de topo.
 - **Limitação:** só 2 nós por caso são mapeáveis. O teste é fraco para casos dominados por doença mental, DPOC ou demência, onde o GBD atribui DW muito superiores aos da IC (p. ex. depressão moderada 0,396 vs IC moderada 0,072).
-- **A validar:** a correspondência nível clínico ↔ estado GBD (p. ex. NYHA III = IC moderada) foi inferida sem as descrições leigas do apêndice. Itens D001–D018 no questionário Delphi.
+- **Verificação contra o apêndice suplementar:** 47/48 DW coincidem com as Appendix Tables 2a/3; o 48.º (asma não controlada) só consta da Tabela 2 do artigo. As descrições leigas (Appendix Table 1) estão guardadas em cada estado.
+- **Mapeamentos revistos com as descrições leigas:** DPOC (mMRC 3 passa de grave a moderada); FA (o estado GBD descreve arritmia com síncope → FA pouco sintomática, EHRA 1–2, passa a «doença crónica não complicada», 0,049); demência por CDR; angina CCS I → ligeira. Cada mapeamento tem justificação textual.
+- **Decisão (2026-11-13):** o modo GBD passa a ser o modo por defeito.
+- **A validar:** os mapeamentos continuam itens D001–D018 do Delphi; a artrose e a lombalgia têm níveis GBD funcionais, aproximados pela EVA (preferir escolha manual).
 - **Pendente:** comparar com os DW do GBD 2019/2021, se disponíveis.
 
 Restantes ancoragens previstas:

@@ -6,6 +6,7 @@ import { dwParaGravidade, nivelGBD } from '../src/engine/severity.js';
 import { analisarSensibilidade } from '../src/engine/sensitivity.js';
 
 const cfgGBD = clone(cfg); cfgGBD.gravidade.fonte_sintomatica = 'gbd2013';
+const cfgTab = clone(cfg); cfgTab.gravidade.fonte_sintomatica = 'tabelas';
 const perto = (a, b, eps = 1e-9) => assert.ok(Math.abs(a - b) < eps, `${a} ≠ ${b}`);
 const mapa = (no) => kb.dw.porNo.get(no);
 
@@ -40,8 +41,9 @@ test('nível GBD: parâmetro, manual e defeito', () => {
   assert.equal(nivelGBD(mapa('ic'), {}, {}).origem, 'defeito');
 });
 
-test('modo por defeito = tabelas; modo GBD só altera nós sintomáticos', () => {
-  const a = analisar(caso('caso-b'), kb, cfg);
+test('modo por defeito = GBD; o GBD só altera nós sintomáticos', () => {
+  assert.equal(cfg.gravidade.fonte_sintomatica, 'gbd2013');
+  const a = analisar(caso('caso-b'), kb, cfgTab);
   const b = analisar(caso('caso-b'), kb, cfgGBD);
   assert.equal(a.grafo.nos.get('ic').origem_gravidade, 'defeito');
   assert.equal(b.grafo.nos.get('ic').origem_gravidade, 'gbd_nivel_defeito');
@@ -73,4 +75,18 @@ test('sensibilidade no modo GBD usa o IC 95 % do GBD como incerteza empírica', 
   perto(dep.lo, dwParaGravidade(0.099, kb.dw)); perto(dep.hi, dwParaGravidade(0.209, kb.dw));
   assert.equal(s.incertezas_gravidade.find((x) => x.id === 'gonartrose').tipo, 'gbd_nivel_defeito');
   assert.ok(s.tornado.some((l) => l.tipo === 'incerteza_gbd'));
+});
+
+test('todos os estados têm descrição leiga do apêndice e mapeamento justificado', () => {
+  for (const [id, e] of Object.entries(kb.dw.estados)) assert.match(e.descricao_leiga ?? '', /^The person /, id);
+  for (const m of kb.dw.mapeamentos) assert.ok(m.justificacao, m.no);
+});
+
+test('mapeamentos revistos contra as descrições leigas', () => {
+  assert.equal(nivelGBD(mapa('dpoc'), {}, { mmrc: 3 }).nivel, 'moderado'); // dispneia com esforço ligeiro, curtas distâncias
+  assert.equal(nivelGBD(mapa('dpoc'), {}, { mmrc: 4 }).nivel, 'grave');
+  assert.equal(nivelGBD(mapa('demencia'), {}, { cdr: 2 }).nivel, 'moderado');
+  assert.equal(nivelGBD(mapa('fa'), {}, { ehra: 2 }).nivel, 'assintomatica'); // não usar o estado com síncope
+  assert.equal(nivelGBD(mapa('fa'), {}, { ehra: 3 }).nivel, 'sintomatica');
+  assert.equal(nivelGBD(mapa('fa'), {}, {}).nivel, 'assintomatica');
 });

@@ -20,6 +20,7 @@ md += `Gerado por \`npm run sensibilidade\`. ${cfg.sensibilidade.n} simulações
 md += `**Incerteza simulada:** coeficientes do motor × U(1 − a, 1 + a), preservando a ordem (forte > moderada > fraca, + < ++ < +++, menor < moderado < major); `;
 md += `gravidades que usaram o valor por defeito ~ U(${cfg.sensibilidade.gravidade_defeito_intervalo.join('; ')}).\n\n`;
 md += `| Grupo | a |\n|---|---|\n${Object.entries(cfg.sensibilidade.amplitudes).map(([k, v]) => `| ${k} | ±${pct(v)} |`).join('\n')}\n\n`;
+md += `Modo de gravidade sintomática: **${cfg.gravidade.fonte_sintomatica}**.\n\n`;
 md += `**Leitura:** "estável" = posição P5–P95 varia ≤ 1 lugar; "moderada" ≤ 3; "instável" > 3. O τ de Kendall compara cada simulação com o ranking base (1 = ordem idêntica).\n\n`;
 
 for (const [id, caso] of Object.entries(casos)) {
@@ -38,10 +39,12 @@ for (const [id, caso] of Object.entries(casos)) {
 // Comparação: gravidade dos nós sintomáticos por tabelas vs ancorada no GBD 2013
 const cfgGBD = structuredClone(cfg);
 cfgGBD.gravidade.fonte_sintomatica = 'gbd2013';
+const cfgTab = structuredClone(cfg);
+cfgTab.gravidade.fonte_sintomatica = 'tabelas';
 md += `## Comparação: tabelas vs disability weights do GBD 2013\n\n`;
 md += `Modo GBD: os nós sintomáticos mapeados em \`disability_weights.json\` usam g = DW^γ (γ = ${num(kb.dw.gama)}, mediana GBD 0,128 → 0,5); na sensibilidade, o DW é amostrado no IC 95 % publicado. Nós prognósticos inalterados.\n\n`;
 for (const [id, caso] of Object.entries(casos)) {
-  const a = analisar(caso, kb, cfg), b = analisar(caso, kb, cfgGBD);
+  const a = analisar(caso, kb, cfgTab), b = analisar(caso, kb, cfgGBD);
   const s = analisarSensibilidade(caso, kb, cfgGBD, { tornado: false });
   md += `### ${caso.descricao ?? id}\n\nτ de Kendall entre modos: **${num(kendallTau(a.ranking.map((x) => x.id), b.ranking.map((x) => x.id)))}**.\n\n`;
   const nosGBD = [...b.grafo.nos.values()].filter((n) => n.gbd);

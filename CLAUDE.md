@@ -43,7 +43,7 @@ build.js           gera dist/mapa-causal.html com tudo inline (esbuild)
 - Qualquer entrada sem referência verificada leva `"a_validar": true`.
 - Ligações referem nós por `id`; os subtipos (p. ex. `ic` FEr/FEp) usam o campo `subtipo` e não ids novos.
 - Os nós de tipo `risco` (eventos_cv, quedas, lesao_renal, …) são instanciados automaticamente quando há um progenitor presente, com gravidade derivada.
-- Gravidade dos nós sintomáticos: `config.gravidade.fonte_sintomatica` = `tabelas` (defeito) ou `gbd2013`. Nós prognósticos (DM2, HTA, DRC/KDIGO, risco CV, obesidade) usam sempre as tabelas de risco.
+- Gravidade dos nós sintomáticos: `config.gravidade.fonte_sintomatica` = `gbd2013` (defeito) ou `tabelas`. Nós prognósticos (DM2, HTA, DRC/KDIGO, risco CV, obesidade) usam sempre as tabelas de risco.
 - Na UI, os números usam vírgula decimal (`Intl.NumberFormat('pt-PT')`).
 - localStorage serve apenas de rascunho e é sempre envolvido em try/catch. Persistência real = exportar/importar JSON.
 

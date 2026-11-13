@@ -1,5 +1,5 @@
 {
-  "_nota": "Disability weights (DW) do GBD 2013 — Salomon et al., Lancet Glob Health 2015, Tabela 2 (transcrição manual; IC 95 % entre parênteses no original). Usados só para nós SINTOMÁTICOS; nós de gravidade sobretudo prognóstica (DM2, HTA, DRC/KDIGO, risco CV, obesidade) mantêm as tabelas de risco. Correspondência nível GBD ↔ escala clínica: inferida pelo desenvolvimento, sem acesso às descrições leigas do apêndice → a_validar.",
+  "_nota": "Disability weights (DW) do GBD 2013 — Salomon et al., Lancet Glob Health 2015, Tabela 2; 47/48 valores confirmados no apêndice suplementar (Appendix Tables 2a/3), descrições leigas (inglês original) do Appendix Table 1. Usados só para nós SINTOMÁTICOS; nós de gravidade sobretudo prognóstica (DM2, HTA, DRC/KDIGO, risco CV, obesidade) mantêm as tabelas de risco. Correspondência nível GBD ↔ escala clínica revista contra as descrições leigas; continua a_validar (Delphi D001–D018).",
   "fonte": "salomon2015",
   "a_validar_mapeamento": true,
   "transformacao": {
@@ -8,109 +8,874 @@
     "ancora_g": 0.5
   },
   "estados": {
-    "generico_medicacao":    { "rotulo_gbd": "Generic uncomplicated disease: worry and daily medication", "dw": 0.049, "ui": [0.031, 0.072] },
-    "angina_ligeira":        { "rotulo_gbd": "Angina pectoris, mild", "dw": 0.033, "ui": [0.020, 0.052] },
-    "angina_moderada":       { "rotulo_gbd": "Angina pectoris, moderate", "dw": 0.080, "ui": [0.052, 0.113] },
-    "angina_grave":          { "rotulo_gbd": "Angina pectoris, severe", "dw": 0.167, "ui": [0.110, 0.240] },
-    "disritmia":             { "rotulo_gbd": "Cardiac conduction disorders and cardiac dysrhythmias", "dw": 0.224, "ui": [0.151, 0.312] },
-    "claudicacao":           { "rotulo_gbd": "Claudication", "dw": 0.014, "ui": [0.007, 0.025] },
-    "ic_ligeira":            { "rotulo_gbd": "Heart failure, mild", "dw": 0.041, "ui": [0.026, 0.062] },
-    "ic_moderada":           { "rotulo_gbd": "Heart failure, moderate", "dw": 0.072, "ui": [0.047, 0.103] },
-    "ic_grave":              { "rotulo_gbd": "Heart failure, severe", "dw": 0.179, "ui": [0.122, 0.251] },
-    "avc_ligeiro":           { "rotulo_gbd": "Stroke: long-term consequences, mild", "dw": 0.019, "ui": [0.010, 0.032] },
-    "avc_moderado":          { "rotulo_gbd": "Stroke: long-term consequences, moderate", "dw": 0.070, "ui": [0.046, 0.099] },
-    "avc_moderado_cognicao": { "rotulo_gbd": "Stroke: long-term consequences, moderate, plus cognition problems", "dw": 0.316, "ui": [0.206, 0.437] },
-    "avc_grave":             { "rotulo_gbd": "Stroke: long-term consequences, severe", "dw": 0.552, "ui": [0.377, 0.707] },
-    "pe_diabetico":          { "rotulo_gbd": "Diabetic foot", "dw": 0.020, "ui": [0.010, 0.034] },
-    "neuropatia_diabetica":  { "rotulo_gbd": "Diabetic neuropathy", "dw": 0.133, "ui": [0.089, 0.187] },
-    "asma_controlada":       { "rotulo_gbd": "Asthma, controlled", "dw": 0.015, "ui": [0.007, 0.026] },
-    "asma_parcial":          { "rotulo_gbd": "Asthma, partly controlled", "dw": 0.036, "ui": [0.022, 0.055] },
-    "asma_nao_controlada":   { "rotulo_gbd": "Asthma, uncontrolled", "dw": 0.133, "ui": [0.086, 0.192] },
-    "dpoc_ligeira":          { "rotulo_gbd": "COPD and other chronic respiratory diseases, mild", "dw": 0.019, "ui": [0.011, 0.033] },
-    "dpoc_moderada":         { "rotulo_gbd": "COPD and other chronic respiratory diseases, moderate", "dw": 0.225, "ui": [0.153, 0.310] },
-    "dpoc_grave":            { "rotulo_gbd": "COPD and other chronic respiratory diseases, severe", "dw": 0.408, "ui": [0.273, 0.556] },
-    "demencia_ligeira":      { "rotulo_gbd": "Dementia, mild", "dw": 0.069, "ui": [0.046, 0.099] },
-    "demencia_moderada":     { "rotulo_gbd": "Dementia, moderate", "dw": 0.377, "ui": [0.252, 0.508] },
-    "demencia_grave":        { "rotulo_gbd": "Dementia, severe", "dw": 0.449, "ui": [0.304, 0.595] },
-    "ansiedade_ligeira":     { "rotulo_gbd": "Anxiety disorders, mild", "dw": 0.030, "ui": [0.018, 0.046] },
-    "ansiedade_moderada":    { "rotulo_gbd": "Anxiety disorders, moderate", "dw": 0.133, "ui": [0.091, 0.186] },
-    "ansiedade_grave":       { "rotulo_gbd": "Anxiety disorders, severe", "dw": 0.523, "ui": [0.362, 0.677] },
-    "depressao_ligeira":     { "rotulo_gbd": "Major depressive disorder, mild episode", "dw": 0.145, "ui": [0.099, 0.209] },
-    "depressao_moderada":    { "rotulo_gbd": "Major depressive disorder, moderate episode", "dw": 0.396, "ui": [0.267, 0.531] },
-    "depressao_grave":       { "rotulo_gbd": "Major depressive disorder, severe episode", "dw": 0.658, "ui": [0.477, 0.807] },
-    "audicao_ligeira":       { "rotulo_gbd": "Hearing loss, mild", "dw": 0.010, "ui": [0.004, 0.019] },
-    "audicao_moderada":      { "rotulo_gbd": "Hearing loss, moderate", "dw": 0.027, "ui": [0.015, 0.042] },
-    "audicao_grave":         { "rotulo_gbd": "Hearing loss, severe", "dw": 0.158, "ui": [0.105, 0.227] },
-    "audicao_profunda":      { "rotulo_gbd": "Hearing loss, profound", "dw": 0.204, "ui": [0.134, 0.288] },
-    "visao_ligeira":         { "rotulo_gbd": "Distance vision, mild impairment", "dw": 0.003, "ui": [0.001, 0.007] },
-    "visao_moderada":        { "rotulo_gbd": "Distance vision, moderate impairment", "dw": 0.031, "ui": [0.019, 0.049] },
-    "visao_grave":           { "rotulo_gbd": "Distance vision, severe impairment", "dw": 0.184, "ui": [0.125, 0.258] },
-    "cegueira":              { "rotulo_gbd": "Distance vision, blindness", "dw": 0.187, "ui": [0.124, 0.260] },
-    "lombalgia_ligeira":     { "rotulo_gbd": "Low back pain, mild", "dw": 0.020, "ui": [0.011, 0.035] },
-    "lombalgia_moderada":    { "rotulo_gbd": "Low back pain, moderate", "dw": 0.054, "ui": [0.035, 0.079] },
-    "lombalgia_grave":       { "rotulo_gbd": "Low back pain, severe, without leg pain", "dw": 0.272, "ui": [0.182, 0.373] },
-    "lombalgia_muito_grave": { "rotulo_gbd": "Low back pain, most severe, without leg pain", "dw": 0.372, "ui": [0.250, 0.506] },
-    "mme_pernas_ligeiro":    { "rotulo_gbd": "Musculoskeletal problems: legs, mild", "dw": 0.023, "ui": [0.013, 0.037] },
-    "mme_pernas_moderado":   { "rotulo_gbd": "Musculoskeletal problems: legs, moderate", "dw": 0.079, "ui": [0.054, 0.110] },
-    "mme_pernas_grave":      { "rotulo_gbd": "Musculoskeletal problems: legs, severe", "dw": 0.165, "ui": [0.112, 0.232] },
-    "anemia_ligeira":        { "rotulo_gbd": "Anaemia, mild", "dw": 0.004, "ui": [0.001, 0.008] },
-    "anemia_moderada":       { "rotulo_gbd": "Anaemia, moderate", "dw": 0.052, "ui": [0.034, 0.076] },
-    "anemia_grave":          { "rotulo_gbd": "Anaemia, severe", "dw": 0.149, "ui": [0.101, 0.209] }
+    "generico_medicacao": {
+      "rotulo_gbd": "Generic uncomplicated disease: worry and daily medication",
+      "dw": 0.049,
+      "ui": [
+        0.031,
+        0.072
+      ],
+      "descricao_leiga": "The person has a chronic disease that requires medication every day and causes some worry but minimal interference with daily activities.",
+      "verificado_apendice": true
+    },
+    "angina_ligeira": {
+      "rotulo_gbd": "Angina pectoris, mild",
+      "dw": 0.033,
+      "ui": [
+        0.02,
+        0.052
+      ],
+      "descricao_leiga": "The person has chest pain that occurs with strenuous physical activity, such as running or lifting heavy objects. After a brief rest, the pain goes away.",
+      "verificado_apendice": true
+    },
+    "angina_moderada": {
+      "rotulo_gbd": "Angina pectoris, moderate",
+      "dw": 0.08,
+      "ui": [
+        0.052,
+        0.113
+      ],
+      "descricao_leiga": "The person has chest pain that occurs with moderate physical activity, such as walking uphill or more than half a kilometer (around a quarter-mile) on level ground. After a brief rest, the pain goes away.",
+      "verificado_apendice": true
+    },
+    "angina_grave": {
+      "rotulo_gbd": "Angina pectoris, severe",
+      "dw": 0.167,
+      "ui": [
+        0.11,
+        0.24
+      ],
+      "descricao_leiga": "The person has chest pain that occurs with minimal physical activity, such as walking only a short distance. After a brief rest, the pain goes away. The person avoids most physical activities because of the pain.",
+      "verificado_apendice": true
+    },
+    "disritmia": {
+      "rotulo_gbd": "Cardiac conduction disorders and cardiac dysrhythmias",
+      "dw": 0.224,
+      "ui": [
+        0.151,
+        0.312
+      ],
+      "descricao_leiga": "The person has periods of rapid and irregular heartbeats and occasional fainting.",
+      "verificado_apendice": true
+    },
+    "claudicacao": {
+      "rotulo_gbd": "Claudication",
+      "dw": 0.014,
+      "ui": [
+        0.007,
+        0.025
+      ],
+      "descricao_leiga": "The person has cramping pains in the legs after walking a medium distance. The pain goes away after a short rest.",
+      "verificado_apendice": true
+    },
+    "ic_ligeira": {
+      "rotulo_gbd": "Heart failure, mild",
+      "dw": 0.041,
+      "ui": [
+        0.026,
+        0.062
+      ],
+      "descricao_leiga": "The person is short of breath and easily tires with moderate physical activity, such as walking uphill or more than a quarter-mile on level ground. The person feels comfortable at rest or during activities requiring less effort.",
+      "verificado_apendice": true
+    },
+    "ic_moderada": {
+      "rotulo_gbd": "Heart failure, moderate",
+      "dw": 0.072,
+      "ui": [
+        0.047,
+        0.103
+      ],
+      "descricao_leiga": "The person is short of breath and easily tires with minimal physical activity, such as walking only a short distance. The person feels comfortable at rest but avoids moderate activity.",
+      "verificado_apendice": true
+    },
+    "ic_grave": {
+      "rotulo_gbd": "Heart failure, severe",
+      "dw": 0.179,
+      "ui": [
+        0.122,
+        0.251
+      ],
+      "descricao_leiga": "The person is short of breath and feels tired when at rest. The person avoids any physical activity, for fear of worsening the breathing problems.",
+      "verificado_apendice": true
+    },
+    "avc_ligeiro": {
+      "rotulo_gbd": "Stroke: long-term consequences, mild",
+      "dw": 0.019,
+      "ui": [
+        0.01,
+        0.032
+      ],
+      "descricao_leiga": "The person has some difficulty in moving around and some weakness in one hand, but is able to walk without help.",
+      "verificado_apendice": true
+    },
+    "avc_moderado": {
+      "rotulo_gbd": "Stroke: long-term consequences, moderate",
+      "dw": 0.07,
+      "ui": [
+        0.046,
+        0.099
+      ],
+      "descricao_leiga": "The person has some difficulty in moving around, and in using the hands for lifting and holding things, dressing and grooming.",
+      "verificado_apendice": true
+    },
+    "avc_moderado_cognicao": {
+      "rotulo_gbd": "Stroke: long-term consequences, moderate, plus cognition problems",
+      "dw": 0.316,
+      "ui": [
+        0.206,
+        0.437
+      ],
+      "descricao_leiga": "The person has some difficulty in moving around, in using the hands for lifting and holding things, dressing and grooming, and in speaking. The person is often forgetful and confused.",
+      "verificado_apendice": true
+    },
+    "avc_grave": {
+      "rotulo_gbd": "Stroke: long-term consequences, severe",
+      "dw": 0.552,
+      "ui": [
+        0.377,
+        0.707
+      ],
+      "descricao_leiga": "The person is confined to bed or a wheelchair, has difficulty speaking and depends on others for feeding, toileting and dressing.",
+      "verificado_apendice": true
+    },
+    "pe_diabetico": {
+      "rotulo_gbd": "Diabetic foot",
+      "dw": 0.02,
+      "ui": [
+        0.01,
+        0.034
+      ],
+      "descricao_leiga": "The person has a sore on the foot that is swollen and causes some difficulty in walking.",
+      "verificado_apendice": true
+    },
+    "neuropatia_diabetica": {
+      "rotulo_gbd": "Diabetic neuropathy",
+      "dw": 0.133,
+      "ui": [
+        0.089,
+        0.187
+      ],
+      "descricao_leiga": "The person has pain, tingling and numbness in the arms, legs, hands and feet. The person sometimes gets cramps and muscle weakness.",
+      "verificado_apendice": true
+    },
+    "asma_controlada": {
+      "rotulo_gbd": "Asthma, controlled",
+      "dw": 0.015,
+      "ui": [
+        0.007,
+        0.026
+      ],
+      "descricao_leiga": "The person has wheezing and cough once a month, which does not cause difficulty with daily activities.",
+      "verificado_apendice": true
+    },
+    "asma_parcial": {
+      "rotulo_gbd": "Asthma, partly controlled",
+      "dw": 0.036,
+      "ui": [
+        0.022,
+        0.055
+      ],
+      "descricao_leiga": "The person has wheezing and cough once a week, which causes some difficulty with daily activities.",
+      "verificado_apendice": true
+    },
+    "asma_nao_controlada": {
+      "rotulo_gbd": "Asthma, uncontrolled",
+      "dw": 0.133,
+      "ui": [
+        0.086,
+        0.192
+      ],
+      "descricao_leiga": "The person has wheezing, cough and shortness of breath more than twice a week, which causes difficulty with daily activities and sometimes wakes the person at night.",
+      "verificado_apendice": false
+    },
+    "dpoc_ligeira": {
+      "rotulo_gbd": "COPD and other chronic respiratory diseases, mild",
+      "dw": 0.019,
+      "ui": [
+        0.011,
+        0.033
+      ],
+      "descricao_leiga": "The person has cough and shortness of breath after heavy physical activity, but is able to walk long distances and climb stairs.",
+      "verificado_apendice": true
+    },
+    "dpoc_moderada": {
+      "rotulo_gbd": "COPD and other chronic respiratory diseases, moderate",
+      "dw": 0.225,
+      "ui": [
+        0.153,
+        0.31
+      ],
+      "descricao_leiga": "The person has cough, wheezing and shortness of breath, even after light physical activity. The person feels tired and can walk only short distances or climb only a few stairs.",
+      "verificado_apendice": true
+    },
+    "dpoc_grave": {
+      "rotulo_gbd": "COPD and other chronic respiratory diseases, severe",
+      "dw": 0.408,
+      "ui": [
+        0.273,
+        0.556
+      ],
+      "descricao_leiga": "The person has cough, wheezing and shortness of breath all the time. The person has great difficulty walking even short distances or climbing any stairs, feels tired when at rest, and is anxious.",
+      "verificado_apendice": true
+    },
+    "demencia_ligeira": {
+      "rotulo_gbd": "Dementia, mild",
+      "dw": 0.069,
+      "ui": [
+        0.046,
+        0.099
+      ],
+      "descricao_leiga": "The person has some trouble remembering recent events, and finds it hard to concentrate and make decisions and plans.",
+      "verificado_apendice": true
+    },
+    "demencia_moderada": {
+      "rotulo_gbd": "Dementia, moderate",
+      "dw": 0.377,
+      "ui": [
+        0.252,
+        0.508
+      ],
+      "descricao_leiga": "The person has memory problems and confusion, feels disoriented, at times hears voices that are not real, and needs help with some daily activities.",
+      "verificado_apendice": true
+    },
+    "demencia_grave": {
+      "rotulo_gbd": "Dementia, severe",
+      "dw": 0.449,
+      "ui": [
+        0.304,
+        0.595
+      ],
+      "descricao_leiga": "The person has complete memory loss; no longer recognizes close family members; and requires help with all daily activities.",
+      "verificado_apendice": true
+    },
+    "ansiedade_ligeira": {
+      "rotulo_gbd": "Anxiety disorders, mild",
+      "dw": 0.03,
+      "ui": [
+        0.018,
+        0.046
+      ],
+      "descricao_leiga": "The person feels mildly anxious and worried, which makes it slightly difficult to concentrate, remember things, and sleep. The person tires easily but is able to perform daily activities.",
+      "verificado_apendice": true
+    },
+    "ansiedade_moderada": {
+      "rotulo_gbd": "Anxiety disorders, moderate",
+      "dw": 0.133,
+      "ui": [
+        0.091,
+        0.186
+      ],
+      "descricao_leiga": "The person feels anxious and worried, which makes it difficult to concentrate, remember things, and sleep. The person tires easily and finds it difficult to perform daily activities.",
+      "verificado_apendice": true
+    },
+    "ansiedade_grave": {
+      "rotulo_gbd": "Anxiety disorders, severe",
+      "dw": 0.523,
+      "ui": [
+        0.362,
+        0.677
+      ],
+      "descricao_leiga": "The person constantly feels very anxious and worried, which makes it difficult to concentrate, remember things and sleep. The person has lost pleasure in life and thinks about suicide.",
+      "verificado_apendice": true
+    },
+    "depressao_ligeira": {
+      "rotulo_gbd": "Major depressive disorder, mild episode",
+      "dw": 0.145,
+      "ui": [
+        0.099,
+        0.209
+      ],
+      "descricao_leiga": "The person feels persistent sadness and has lost interest in usual activities. The person sometimes sleeps badly, feels tired, or has trouble concentrating but still manages to function in daily life with extra effort.",
+      "verificado_apendice": true
+    },
+    "depressao_moderada": {
+      "rotulo_gbd": "Major depressive disorder, moderate episode",
+      "dw": 0.396,
+      "ui": [
+        0.267,
+        0.531
+      ],
+      "descricao_leiga": "The person has constant sadness and has lost interest in usual activities. The person has some difficulty in daily life, sleeps badly, has trouble concentrating, and sometimes thinks about harming himself (or herself).",
+      "verificado_apendice": true
+    },
+    "depressao_grave": {
+      "rotulo_gbd": "Major depressive disorder, severe episode",
+      "dw": 0.658,
+      "ui": [
+        0.477,
+        0.807
+      ],
+      "descricao_leiga": "The person has overwhelming, constant sadness and cannot function in daily life. The person sometimes loses touch with reality and wants to harm or kill himself (or herself).",
+      "verificado_apendice": true
+    },
+    "audicao_ligeira": {
+      "rotulo_gbd": "Hearing loss, mild",
+      "dw": 0.01,
+      "ui": [
+        0.004,
+        0.019
+      ],
+      "descricao_leiga": "The person has great difficulty hearing and understanding another person talking in a noisy place (for example, on an urban street).",
+      "verificado_apendice": true
+    },
+    "audicao_moderada": {
+      "rotulo_gbd": "Hearing loss, moderate",
+      "dw": 0.027,
+      "ui": [
+        0.015,
+        0.042
+      ],
+      "descricao_leiga": "The person is unable to hear and understand another person talking in a noisy place (for example, on an urban street), and has difficulty hearing another person talking even in a quiet place or on the phone.",
+      "verificado_apendice": true
+    },
+    "audicao_grave": {
+      "rotulo_gbd": "Hearing loss, severe",
+      "dw": 0.158,
+      "ui": [
+        0.105,
+        0.227
+      ],
+      "descricao_leiga": "The person is unable to hear and understand another person talking, even in a quiet place, and unable to take part in a phone conversation. Difficulties with communicating and relating to others cause emotional impact at times (for example worry or depression).",
+      "verificado_apendice": true
+    },
+    "audicao_profunda": {
+      "rotulo_gbd": "Hearing loss, profound",
+      "dw": 0.204,
+      "ui": [
+        0.134,
+        0.288
+      ],
+      "descricao_leiga": "The person is unable to hear and understand another person talking, even in a quiet place, is unable to take part in a phone conversation, and has great difficulty hearing anything in any other situation. Difficulties with communicating and relating to others often cause worry, depression or loneliness.",
+      "verificado_apendice": true
+    },
+    "visao_ligeira": {
+      "rotulo_gbd": "Distance vision, mild impairment",
+      "dw": 0.003,
+      "ui": [
+        0.001,
+        0.007
+      ],
+      "descricao_leiga": "The person has some difficulty with distance vision, for example reading signs, but no other problems with eyesight.",
+      "verificado_apendice": true
+    },
+    "visao_moderada": {
+      "rotulo_gbd": "Distance vision, moderate impairment",
+      "dw": 0.031,
+      "ui": [
+        0.019,
+        0.049
+      ],
+      "descricao_leiga": "The person has vision problems that make it difficult to recognize faces or objects across a room.",
+      "verificado_apendice": true
+    },
+    "visao_grave": {
+      "rotulo_gbd": "Distance vision, severe impairment",
+      "dw": 0.184,
+      "ui": [
+        0.125,
+        0.258
+      ],
+      "descricao_leiga": "The person has severe vision loss, which causes difficulty in daily activities, some emotional impact (for example worry), and some difficulty going outside the home without assistance.",
+      "verificado_apendice": true
+    },
+    "cegueira": {
+      "rotulo_gbd": "Distance vision, blindness",
+      "dw": 0.187,
+      "ui": [
+        0.124,
+        0.26
+      ],
+      "descricao_leiga": "The person is completely blind, which causes great difficulty in some daily activities, worry and anxiety, and great difficulty going outside the home without assistance.",
+      "verificado_apendice": true
+    },
+    "lombalgia_ligeira": {
+      "rotulo_gbd": "Low back pain, mild",
+      "dw": 0.02,
+      "ui": [
+        0.011,
+        0.035
+      ],
+      "descricao_leiga": "The person has mild back pain, which causes some difficulty dressing, standing, and lifting things.",
+      "verificado_apendice": true
+    },
+    "lombalgia_moderada": {
+      "rotulo_gbd": "Low back pain, moderate",
+      "dw": 0.054,
+      "ui": [
+        0.035,
+        0.079
+      ],
+      "descricao_leiga": "The person has moderate back pain, which causes difficulty dressing, sitting, standing, walking, and lifting things.",
+      "verificado_apendice": true
+    },
+    "lombalgia_grave": {
+      "rotulo_gbd": "Low back pain, severe, without leg pain",
+      "dw": 0.272,
+      "ui": [
+        0.182,
+        0.373
+      ],
+      "descricao_leiga": "The person has severe back pain, which causes difficulty dressing, sitting, standing, walking, and lifting things. The person sleeps poorly and feels worried.",
+      "verificado_apendice": true
+    },
+    "lombalgia_muito_grave": {
+      "rotulo_gbd": "Low back pain, most severe, without leg pain",
+      "dw": 0.372,
+      "ui": [
+        0.25,
+        0.506
+      ],
+      "descricao_leiga": "The person has constant back pain, which causes difficulty dressing, sitting, standing, walking, and lifting things. The person sleeps poorly, is worried, and has lost some enjoyment in life.",
+      "verificado_apendice": true
+    },
+    "mme_pernas_ligeiro": {
+      "rotulo_gbd": "Musculoskeletal problems: legs, mild",
+      "dw": 0.023,
+      "ui": [
+        0.013,
+        0.037
+      ],
+      "descricao_leiga": "The person has pain in the leg, which causes some difficulty running, walking long distances, and getting up and down.",
+      "verificado_apendice": true
+    },
+    "mme_pernas_moderado": {
+      "rotulo_gbd": "Musculoskeletal problems: legs, moderate",
+      "dw": 0.079,
+      "ui": [
+        0.054,
+        0.11
+      ],
+      "descricao_leiga": "The person has moderate pain in the leg, which makes the person limp, and causes some difficulty walking, standing, lifting and carrying heavy things, getting up and down and sleeping.",
+      "verificado_apendice": true
+    },
+    "mme_pernas_grave": {
+      "rotulo_gbd": "Musculoskeletal problems: legs, severe",
+      "dw": 0.165,
+      "ui": [
+        0.112,
+        0.232
+      ],
+      "descricao_leiga": "The person has severe pain in the leg, which makes the person limp and causes a lot of difficulty walking, standing, lifting and carrying heavy things, getting up and down, and sleeping.",
+      "verificado_apendice": true
+    },
+    "anemia_ligeira": {
+      "rotulo_gbd": "Anaemia, mild",
+      "dw": 0.004,
+      "ui": [
+        0.001,
+        0.008
+      ],
+      "descricao_leiga": "The person feels slightly tired and weak at times, but this does not interfere with normal daily activities.",
+      "verificado_apendice": true
+    },
+    "anemia_moderada": {
+      "rotulo_gbd": "Anaemia, moderate",
+      "dw": 0.052,
+      "ui": [
+        0.034,
+        0.076
+      ],
+      "descricao_leiga": "The person feels moderate fatigue, weakness, and shortness of breath after exercise, making daily activities more difficult.",
+      "verificado_apendice": true
+    },
+    "anemia_grave": {
+      "rotulo_gbd": "Anaemia, severe",
+      "dw": 0.149,
+      "ui": [
+        0.101,
+        0.209
+      ],
+      "descricao_leiga": "The person feels very weak, tired and short of breath, and has problems with activities that require physical effort or deep concentration.",
+      "verificado_apendice": true
+    }
   },
   "mapeamentos": [
-    { "no": "ic", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "ic_ligeira", "moderado": "ic_moderada", "grave": "ic_grave" },
-      "parametro": "nyha", "regras": [[4, "grave"], [3, "moderado"], [1, "ligeiro"]],
-      "_regras": "NYHA I–II → ligeira; III → moderada; IV → grave" },
-    { "no": "doenca_coronaria", "nivel_por_defeito": "ligeiro",
-      "niveis": { "ligeiro": "angina_ligeira", "moderado": "angina_moderada", "grave": "angina_grave" },
-      "parametro": "ccs", "regras": [[3, "grave"], [2, "moderado"], [0, "ligeiro"]],
-      "_regras": "Classe CCS 0–I → ligeira; II → moderada; III–IV → grave" },
-    { "no": "fa", "nivel_por_defeito": "unico", "niveis": { "unico": "disritmia" } },
-    { "no": "dap", "nivel_por_defeito": "unico", "niveis": { "unico": "claudicacao" } },
-    { "no": "avc", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "avc_ligeiro", "moderado": "avc_moderado", "moderado_cognicao": "avc_moderado_cognicao", "grave": "avc_grave" },
-      "parametro": "mrs", "regras": [[4, "grave"], [3, "moderado"], [0, "ligeiro"]],
-      "_regras": "mRS 0–2 → ligeiro; 3 → moderado; 4–5 → grave. 'moderado_cognicao' só por indicação manual (nivel)." },
-    { "no": "neuropatia", "nivel_por_defeito": "unico", "niveis": { "unico": "neuropatia_diabetica" } },
-    { "no": "ulcera", "nivel_por_defeito": "unico", "niveis": { "unico": "pe_diabetico" }, "_nota": "Estado GBD 'pé diabético' usado como aproximação para úlcera crónica." },
-    { "no": "asma", "nivel_por_defeito": "parcial",
-      "niveis": { "controlada": "asma_controlada", "parcial": "asma_parcial", "nao_controlada": "asma_nao_controlada" },
-      "parametro": "act", "regras": [[25, "controlada"], [20, "parcial"], [0, "nao_controlada"]],
-      "_regras": "Asthma Control Test: 25 → controlada; 20–24 → parcialmente; < 20 → não controlada" },
-    { "no": "dpoc", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "dpoc_ligeira", "moderado": "dpoc_moderada", "grave": "dpoc_grave" },
-      "parametro": "mmrc", "regras": [[3, "grave"], [2, "moderado"], [0, "ligeiro"]],
-      "_regras": "mMRC 0–1 → ligeira; 2 → moderada; 3–4 → grave" },
-    { "no": "demencia", "nivel_por_defeito": "ligeiro",
-      "niveis": { "ligeiro": "demencia_ligeira", "moderado": "demencia_moderada", "grave": "demencia_grave" } },
-    { "no": "ansiedade", "nivel_por_defeito": "ligeiro",
-      "niveis": { "ligeiro": "ansiedade_ligeira", "moderado": "ansiedade_moderada", "grave": "ansiedade_grave" },
-      "parametro": "gad7", "regras": [[15, "grave"], [10, "moderado"], [0, "ligeiro"]],
-      "_regras": "GAD-7 < 10 → ligeira; 10–14 → moderada; ≥ 15 → grave" },
-    { "no": "depressao", "nivel_por_defeito": "ligeiro",
-      "niveis": { "ligeiro": "depressao_ligeira", "moderado": "depressao_moderada", "grave": "depressao_grave" },
-      "parametro": "phq9", "regras": [[20, "grave"], [10, "moderado"], [0, "ligeiro"]],
-      "_regras": "PHQ-9 < 10 → episódio ligeiro; 10–19 → moderado; ≥ 20 → grave" },
-    { "no": "hipoacusia", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "audicao_ligeira", "moderado": "audicao_moderada", "grave": "audicao_grave", "profundo": "audicao_profunda" } },
-    { "no": "retinopatia", "nivel_por_defeito": "ligeiro",
-      "niveis": { "sem_defice": "generico_medicacao", "ligeiro": "visao_ligeira", "moderado": "visao_moderada", "grave": "visao_grave", "cegueira": "cegueira" },
-      "_nota": "Retinopatia mapeada pelo défice visual resultante." },
-    { "no": "lombalgia", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "lombalgia_ligeira", "moderado": "lombalgia_moderada", "grave": "lombalgia_grave", "muito_grave": "lombalgia_muito_grave" },
-      "parametro": "eva_dor", "regras": [[9, "muito_grave"], [7, "grave"], [4, "moderado"], [0, "ligeiro"]],
-      "_regras": "EVA 0–3 → ligeira; 4–6 → moderada; 7–8 → grave; 9–10 → muito grave" },
-    { "no": "gonartrose", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "mme_pernas_ligeiro", "moderado": "mme_pernas_moderado", "grave": "mme_pernas_grave" },
-      "parametro": "eva_dor", "regras": [[7, "grave"], [4, "moderado"], [0, "ligeiro"]],
-      "_regras": "EVA 0–3 → ligeiro; 4–6 → moderado; 7–10 → grave (estado GBD usado para a artrose)" },
-    { "no": "coxartrose", "nivel_por_defeito": "moderado",
-      "niveis": { "ligeiro": "mme_pernas_ligeiro", "moderado": "mme_pernas_moderado", "grave": "mme_pernas_grave" },
-      "parametro": "eva_dor", "regras": [[7, "grave"], [4, "moderado"], [0, "ligeiro"]] },
-    { "no": "anemia", "nivel_por_defeito": "ligeiro",
-      "niveis": { "ligeiro": "anemia_ligeira", "moderado": "anemia_moderada", "grave": "anemia_grave" },
-      "parametro": "hb", "regras": [[11, "ligeiro"], [8, "moderado"], [0, "grave"]],
-      "_regras": "Hb (g/dL), critérios OMS fora da gravidez: ≥ 11 → ligeira; 8–10,9 → moderada; < 8 → grave" }
+    {
+      "no": "ic",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "ic_ligeira",
+        "moderado": "ic_moderada",
+        "grave": "ic_grave"
+      },
+      "parametro": "nyha",
+      "regras": [
+        [
+          4,
+          "grave"
+        ],
+        [
+          3,
+          "moderado"
+        ],
+        [
+          1,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "NYHA I–II → ligeira; III → moderada; IV → grave",
+      "justificacao": "Descrições GBD: ligeira = dispneia com esforço moderado (subir, > 400 m), confortável com esforços menores → NYHA II; moderada = dispneia com esforço mínimo, confortável em repouso → NYHA III; grave = dispneia em repouso → NYHA IV. NYHA I (assintomática) não tem estado GBD equivalente: atribuída ao nível mais baixo de IC."
+    },
+    {
+      "no": "doenca_coronaria",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "ligeiro": "angina_ligeira",
+        "moderado": "angina_moderada",
+        "grave": "angina_grave"
+      },
+      "parametro": "ccs",
+      "regras": [
+        [
+          3,
+          "grave"
+        ],
+        [
+          2,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "Classe CCS 0–I → ligeira; II → moderada; III–IV → grave",
+      "justificacao": "Ligeira = dor com esforço intenso (CCS I); moderada = a subir ou > 0,5 km em plano (CCS II); grave = esforço mínimo, evita atividade (CCS III–IV). Corrigido: CCS I → ligeira."
+    },
+    {
+      "no": "fa",
+      "nivel_por_defeito": "assintomatica",
+      "niveis": {
+        "assintomatica": "generico_medicacao",
+        "sintomatica": "disritmia"
+      },
+      "parametro": "ehra",
+      "regras": [
+        [
+          3,
+          "sintomatica"
+        ],
+        [
+          1,
+          "assintomatica"
+        ]
+      ],
+      "_regras": "EHRA 1–2 → doença crónica não complicada (medicação diária); EHRA 3–4 → «perturbações da condução/disritmias»",
+      "justificacao": "O estado GBD «cardiac conduction disorders and dysrhythmias» descreve «períodos de batimentos rápidos e irregulares e síncope ocasional» — sobrestima a FA com frequência controlada. FA pouco sintomática (EHRA 1–2) passa a «generic uncomplicated disease: worry and daily medication» (0,049)."
+    },
+    {
+      "no": "dap",
+      "nivel_por_defeito": "unico",
+      "niveis": {
+        "unico": "claudicacao"
+      },
+      "justificacao": "Claudicação = cãibras nas pernas após distância média, alivia com repouso (Fontaine II)."
+    },
+    {
+      "no": "avc",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "avc_ligeiro",
+        "moderado": "avc_moderado",
+        "moderado_cognicao": "avc_moderado_cognicao",
+        "grave": "avc_grave"
+      },
+      "parametro": "mrs",
+      "regras": [
+        [
+          4,
+          "grave"
+        ],
+        [
+          3,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "mRS 0–2 → ligeiro; 3 → moderado; 4–5 → grave. 'moderado_cognicao' só por indicação manual (nivel).",
+      "justificacao": "Ligeiro = alguma dificuldade em deslocar-se, fraqueza numa mão, marcha autónoma (mRS 1–2); moderado = dificuldade nas AVD (vestir, higiene) mas marcha sem ajuda (mRS 3); grave = acamado/cadeira de rodas, dependente (mRS 4–5). 'moderado_cognicao' (esquecimento, confusão, disartria) por indicação manual."
+    },
+    {
+      "no": "neuropatia",
+      "nivel_por_defeito": "unico",
+      "niveis": {
+        "unico": "neuropatia_diabetica"
+      },
+      "justificacao": "Estado GBD = neuropatia dolorosa (dor, parestesias, cãibras). Sobrestima a neuropatia assintomática."
+    },
+    {
+      "no": "ulcera",
+      "nivel_por_defeito": "unico",
+      "niveis": {
+        "unico": "pe_diabetico"
+      },
+      "_nota": "Estado GBD 'pé diabético' usado como aproximação para úlcera crónica.",
+      "justificacao": "Estado GBD «pé diabético» = ferida no pé, edemaciada, alguma dificuldade em andar. Aproximação para úlcera crónica dos membros inferiores."
+    },
+    {
+      "no": "asma",
+      "nivel_por_defeito": "parcial",
+      "niveis": {
+        "controlada": "asma_controlada",
+        "parcial": "asma_parcial",
+        "nao_controlada": "asma_nao_controlada"
+      },
+      "parametro": "act",
+      "regras": [
+        [
+          25,
+          "controlada"
+        ],
+        [
+          20,
+          "parcial"
+        ],
+        [
+          0,
+          "nao_controlada"
+        ]
+      ],
+      "_regras": "Asthma Control Test: 25 → controlada; 20–24 → parcialmente; < 20 → não controlada",
+      "justificacao": "Controlada = sintomas ~1×/mês sem limitação; parcialmente = ~1×/semana com alguma limitação; não controlada = > 2×/semana, limitação e despertares noturnos. Equivalência com ACT 25 / 20–24 / < 20 (ou controlo GINA)."
+    },
+    {
+      "no": "dpoc",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "dpoc_ligeira",
+        "moderado": "dpoc_moderada",
+        "grave": "dpoc_grave"
+      },
+      "parametro": "mmrc",
+      "regras": [
+        [
+          4,
+          "grave"
+        ],
+        [
+          2,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "mMRC 0–1 → ligeira; 2–3 → moderada; 4 → grave",
+      "justificacao": "Ligeira = dispneia após esforço intenso, caminha longas distâncias (mMRC 0–1); moderada = dispneia mesmo com esforço ligeiro, só caminha curtas distâncias (mMRC 2–3); grave = dispneia permanente, cansaço em repouso (mMRC 4). Corrigido: mMRC 3 passa de grave a moderada."
+    },
+    {
+      "no": "demencia",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "ligeiro": "demencia_ligeira",
+        "moderado": "demencia_moderada",
+        "grave": "demencia_grave"
+      },
+      "parametro": "cdr",
+      "regras": [
+        [
+          3,
+          "grave"
+        ],
+        [
+          2,
+          "moderado"
+        ],
+        [
+          0.5,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "CDR 0,5–1 → ligeira; 2 → moderada; 3 → grave",
+      "justificacao": "Ligeira = dificuldade com memória recente e decisões; moderada = confusão, desorientação, por vezes alucinações, ajuda em algumas AVD (CDR 2); grave = perda de memória total, ajuda em todas as AVD (CDR 3)."
+    },
+    {
+      "no": "ansiedade",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "ligeiro": "ansiedade_ligeira",
+        "moderado": "ansiedade_moderada",
+        "grave": "ansiedade_grave"
+      },
+      "parametro": "gad7",
+      "regras": [
+        [
+          15,
+          "grave"
+        ],
+        [
+          10,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "GAD-7 < 10 → ligeira; 10–14 → moderada; ≥ 15 → grave",
+      "justificacao": "Ligeira = consegue fazer as atividades diárias; moderada = dificuldade nas atividades diárias; grave = ansiedade constante, perda de prazer, ideação suicida. GAD-7 como aproximação."
+    },
+    {
+      "no": "depressao",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "ligeiro": "depressao_ligeira",
+        "moderado": "depressao_moderada",
+        "grave": "depressao_grave"
+      },
+      "parametro": "phq9",
+      "regras": [
+        [
+          20,
+          "grave"
+        ],
+        [
+          10,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "PHQ-9 < 10 → episódio ligeiro; 10–19 → moderado; ≥ 20 → grave",
+      "justificacao": "Ligeiro = funciona com esforço extra; moderado = alguma dificuldade no dia a dia e por vezes pensamentos de autolesão; grave = não funciona, por vezes perda de contacto com a realidade, ideação suicida. PHQ-9 10–19 → moderado (inclui 'moderadamente grave'); o item 9 do PHQ-9 positivo deve fazer o médico considerar nível superior (manual)."
+    },
+    {
+      "no": "hipoacusia",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "audicao_ligeira",
+        "moderado": "audicao_moderada",
+        "grave": "audicao_grave",
+        "profundo": "audicao_profunda"
+      },
+      "justificacao": "Ligeira = grande dificuldade em ambiente ruidoso; moderada = não percebe em ruído e tem dificuldade em silêncio/telefone; grave = não percebe mesmo em silêncio, não usa telefone; profunda = grande dificuldade em qualquer situação. Nível escolhido pelo médico (sem regra automática)."
+    },
+    {
+      "no": "retinopatia",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "sem_defice": "generico_medicacao",
+        "ligeiro": "visao_ligeira",
+        "moderado": "visao_moderada",
+        "grave": "visao_grave",
+        "cegueira": "cegueira"
+      },
+      "_nota": "Retinopatia mapeada pelo défice visual resultante.",
+      "justificacao": "Mapeada pelo défice visual de longe: ligeiro = dificuldade a ler sinais; moderado = dificuldade em reconhecer rostos do outro lado da sala; grave = dificuldade nas atividades diárias e em sair sem ajuda; cegueira."
+    },
+    {
+      "no": "lombalgia",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "lombalgia_ligeira",
+        "moderado": "lombalgia_moderada",
+        "grave": "lombalgia_grave",
+        "muito_grave": "lombalgia_muito_grave"
+      },
+      "parametro": "eva_dor",
+      "regras": [
+        [
+          9,
+          "muito_grave"
+        ],
+        [
+          7,
+          "grave"
+        ],
+        [
+          4,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "EVA 0–3 → ligeira; 4–6 → moderada; 7–8 → grave; 9–10 → muito grave",
+      "justificacao": "Os níveis GBD descrevem limitação funcional (vestir, sentar, andar), sono e humor, não intensidade da dor. EVA usada como aproximação; o médico deve preferir a escolha manual do nível pela funcionalidade."
+    },
+    {
+      "no": "gonartrose",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "mme_pernas_ligeiro",
+        "moderado": "mme_pernas_moderado",
+        "grave": "mme_pernas_grave"
+      },
+      "parametro": "eva_dor",
+      "regras": [
+        [
+          7,
+          "grave"
+        ],
+        [
+          4,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "_regras": "EVA 0–3 → ligeiro; 4–6 → moderado; 7–10 → grave (estado GBD usado para a artrose)",
+      "justificacao": "Ligeiro = dificuldade em correr, caminhar longas distâncias, levantar-se; moderado = claudicação, dificuldade em andar, estar de pé, dormir; grave = muita dificuldade nessas atividades. Os níveis são funcionais: EVA é aproximação; preferir escolha manual (ou WOMAC função)."
+    },
+    {
+      "no": "coxartrose",
+      "nivel_por_defeito": "moderado",
+      "niveis": {
+        "ligeiro": "mme_pernas_ligeiro",
+        "moderado": "mme_pernas_moderado",
+        "grave": "mme_pernas_grave"
+      },
+      "parametro": "eva_dor",
+      "regras": [
+        [
+          7,
+          "grave"
+        ],
+        [
+          4,
+          "moderado"
+        ],
+        [
+          0,
+          "ligeiro"
+        ]
+      ],
+      "justificacao": "Ligeiro = dificuldade em correr, caminhar longas distâncias, levantar-se; moderado = claudicação, dificuldade em andar, estar de pé, dormir; grave = muita dificuldade nessas atividades. Os níveis são funcionais: EVA é aproximação; preferir escolha manual (ou WOMAC função)."
+    },
+    {
+      "no": "anemia",
+      "nivel_por_defeito": "ligeiro",
+      "niveis": {
+        "ligeiro": "anemia_ligeira",
+        "moderado": "anemia_moderada",
+        "grave": "anemia_grave"
+      },
+      "parametro": "hb",
+      "regras": [
+        [
+          11,
+          "ligeiro"
+        ],
+        [
+          8,
+          "moderado"
+        ],
+        [
+          0,
+          "grave"
+        ]
+      ],
+      "_regras": "Hb (g/dL), critérios OMS fora da gravidez: ≥ 11 → ligeira; 8–10,9 → moderada; < 8 → grave",
+      "justificacao": "Ligeira = cansaço ligeiro sem interferência; moderada = fadiga e dispneia após esforço; grave = fraqueza, dispneia, dificuldade em esforço ou concentração. Cortes de Hb da OMS (fora da gravidez)."
+    }
   ]
 }
