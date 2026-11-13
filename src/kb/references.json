@@ -1,0 +1,292 @@
+{
+  "_nota": "PMID verificados no PubMed (título/ano/DOI) em 2026-11-13. Link: https://pubmed.ncbi.nlm.nih.gov/<PMID>/",
+  "referencias": {
+    "larsson2021": {
+      "pmid": "34906131",
+      "citacao": "Larsson et al. BMC Med 2021",
+      "titulo": "Causal role of high body mass index in multiple chronic diseases: a systematic review and meta-analysis of Mendelian randomization studies.",
+      "doi": "10.1186/s12916-021-02188-x",
+      "verificado": "2026-11-13"
+    },
+    "dpp2002": {
+      "pmid": "11832527",
+      "citacao": "Knowler et al. N Engl J Med 2002",
+      "titulo": "Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin.",
+      "doi": "10.1056/NEJMoa012512",
+      "verificado": "2026-11-13"
+    },
+    "neter2003": {
+      "pmid": "12975389",
+      "citacao": "Neter et al. Hypertension 2003",
+      "titulo": "Influence of weight reduction on blood pressure: a meta-analysis of randomized controlled trials.",
+      "doi": "10.1161/01.HYP.0000094221.86888.AE",
+      "verificado": "2026-11-13"
+    },
+    "idea2013": {
+      "pmid": "24065013",
+      "citacao": "Messier et al. JAMA 2013",
+      "titulo": "Effects of intensive diet and exercise on knee joint loads, inflammation, and clinical outcomes among overweight and obese adults with knee osteoarthritis: the IDEA randomized clinical trial.",
+      "doi": "10.1001/jama.2013.277669",
+      "verificado": "2026-11-13"
+    },
+    "step9": {
+      "pmid": "39476339",
+      "citacao": "Bliddal et al. N Engl J Med 2024",
+      "titulo": "Once-Weekly Semaglutide in Persons with Obesity and Knee Osteoarthritis.",
+      "doi": "10.1056/NEJMoa2403664",
+      "verificado": "2026-11-13"
+    },
+    "peppard2000jama": {
+      "pmid": "11122588",
+      "citacao": "Peppard et al. JAMA 2000",
+      "titulo": "Longitudinal study of moderate weight change and sleep-disordered breathing.",
+      "doi": "10.1001/jama.284.23.3015",
+      "verificado": "2026-11-13"
+    },
+    "surmountosa": {
+      "pmid": "38912654",
+      "citacao": "Malhotra et al. N Engl J Med 2024",
+      "titulo": "Tirzepatide for the Treatment of Obstructive Sleep Apnea and Obesity.",
+      "doi": "10.1056/NEJMoa2404881",
+      "verificado": "2026-11-13"
+    },
+    "stephfpef": {
+      "pmid": "37622681",
+      "citacao": "Kosiborod et al. N Engl J Med 2023",
+      "titulo": "Semaglutide in Patients with Heart Failure with Preserved Ejection Fraction and Obesity.",
+      "doi": "10.1056/NEJMoa2306963",
+      "verificado": "2026-11-13"
+    },
+    "select": {
+      "pmid": "37952131",
+      "citacao": "Lincoff et al. N Engl J Med 2023",
+      "titulo": "Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes.",
+      "doi": "10.1056/NEJMoa2307563",
+      "verificado": "2026-11-13"
+    },
+    "luppino2010": {
+      "pmid": "20194822",
+      "citacao": "Luppino et al. Arch Gen Psychiatry 2010",
+      "titulo": "Overweight, obesity, and depression: a systematic review and meta-analysis of longitudinal studies.",
+      "doi": "10.1001/archgenpsychiatry.2010.2",
+      "verificado": "2026-11-13"
+    },
+    "ettehad2016": {
+      "pmid": "26724178",
+      "citacao": "Ettehad et al. Lancet 2015",
+      "titulo": "Blood pressure lowering for prevention of cardiovascular disease and death: a systematic review and meta-analysis.",
+      "doi": "10.1016/S0140-6736(15)01225-8",
+      "verificado": "2026-11-13"
+    },
+    "livingston2024": {
+      "pmid": "39096926",
+      "citacao": "Livingston et al. Lancet 2024",
+      "titulo": "Dementia prevention, intervention, and care: 2024 report of the Lancet standing Commission.",
+      "doi": "10.1016/S0140-6736(24)01296-0",
+      "verificado": "2026-11-13"
+    },
+    "peppard2000nejm": {
+      "pmid": "10805822",
+      "citacao": "Peppard et al. N Engl J Med 2000",
+      "titulo": "Prospective study of the association between sleep-disordered breathing and hypertension.",
+      "doi": "10.1056/NEJM200005113421901",
+      "verificado": "2026-11-13"
+    },
+    "dimatteo2000": {
+      "pmid": "10904452",
+      "citacao": "DiMatteo et al. Arch Intern Med 2000",
+      "titulo": "Depression is a risk factor for noncompliance with medical treatment: meta-analysis of the effects of anxiety and depression on patient adherence.",
+      "doi": "10.1001/archinte.160.14.2101",
+      "verificado": "2026-11-13"
+    },
+    "roerecke2017": {
+      "pmid": "29253389",
+      "citacao": "Roerecke et al. Lancet Public Health 2017",
+      "titulo": "The effect of a reduction in alcohol consumption on blood pressure: a systematic review and meta-analysis.",
+      "doi": "10.1016/S2468-2667(17)30003-8",
+      "verificado": "2026-11-13"
+    },
+    "voskoboinik2020": {
+      "pmid": "31893513",
+      "citacao": "Voskoboinik et al. N Engl J Med 2020",
+      "titulo": "Alcohol Abstinence in Drinkers with Atrial Fibrillation.",
+      "doi": "10.1056/NEJMoa1817591",
+      "verificado": "2026-11-13"
+    },
+    "johnson1994": {
+      "pmid": "8037411",
+      "citacao": "Johnson et al. Ann Intern Med 1994",
+      "titulo": "Do nonsteroidal anti-inflammatory drugs affect blood pressure? A meta-analysis.",
+      "doi": "10.7326/0003-4819-121-4-199408150-00011",
+      "verificado": "2026-11-13"
+    },
+    "arfe2016": {
+      "pmid": "27682515",
+      "citacao": "Arfè et al. BMJ 2016",
+      "titulo": "Non-steroidal anti-inflammatory drugs and risk of heart failure in four European countries: nested case-control study.",
+      "doi": "10.1136/bmj.i4857",
+      "verificado": "2026-11-13"
+    },
+    "woolcott2009": {
+      "pmid": "19933955",
+      "citacao": "Woolcott et al. Arch Intern Med 2009",
+      "titulo": "Meta-analysis of the impact of 9 medication classes on falls in elderly persons.",
+      "doi": "10.1001/archinternmed.2009.357",
+      "verificado": "2026-11-13"
+    },
+    "rochon1997": {
+      "pmid": "9366745",
+      "citacao": "Rochon et al. BMJ 1997",
+      "titulo": "Optimising drug treatment for elderly people: the prescribing cascade.",
+      "doi": "10.1136/bmj.315.7115.1096",
+      "verificado": "2026-11-13"
+    },
+    "holtlunstad2010": {
+      "pmid": "20668659",
+      "citacao": "Holt-Lunstad et al. PLoS Med 2010",
+      "titulo": "Social relationships and mortality risk: a meta-analytic review.",
+      "doi": "10.1371/journal.pmed.1000316",
+      "verificado": "2026-11-13"
+    },
+    "step1": {
+      "pmid": "33567185",
+      "citacao": "Wilding et al. N Engl J Med 2021",
+      "titulo": "Once-Weekly Semaglutide in Adults with Overweight or Obesity.",
+      "doi": "10.1056/NEJMoa2032183",
+      "verificado": "2026-11-13"
+    },
+    "surmount1": {
+      "pmid": "35658024",
+      "citacao": "Jastreboff et al. N Engl J Med 2022",
+      "titulo": "Tirzepatide Once Weekly for the Treatment of Obesity.",
+      "doi": "10.1056/NEJMoa2206038",
+      "verificado": "2026-11-13"
+    },
+    "summit": {
+      "pmid": "39555826",
+      "citacao": "Packer et al. N Engl J Med 2024",
+      "titulo": "Tirzepatide for Heart Failure with Preserved Ejection Fraction and Obesity.",
+      "doi": "10.1056/NEJMoa2410027",
+      "verificado": "2026-11-13"
+    },
+    "essence": {
+      "pmid": "40305708",
+      "citacao": "Sanyal et al. N Engl J Med 2025",
+      "titulo": "Phase 3 Trial of Semaglutide in Metabolic Dysfunction-Associated Steatohepatitis.",
+      "doi": "10.1056/NEJMoa2413258",
+      "verificado": "2026-11-13"
+    },
+    "flow": {
+      "pmid": "38785209",
+      "citacao": "Perkovic et al. N Engl J Med 2024",
+      "titulo": "Effects of Semaglutide on Chronic Kidney Disease in Patients with Type 2 Diabetes.",
+      "doi": "10.1056/NEJMoa2403347",
+      "verificado": "2026-11-13"
+    },
+    "dapahf": {
+      "pmid": "31535829",
+      "citacao": "McMurray et al. N Engl J Med 2019",
+      "titulo": "Dapagliflozin in Patients with Heart Failure and Reduced Ejection Fraction.",
+      "doi": "10.1056/NEJMoa1911303",
+      "verificado": "2026-11-13"
+    },
+    "emperorp": {
+      "pmid": "34449189",
+      "citacao": "Anker et al. N Engl J Med 2021",
+      "titulo": "Empagliflozin in Heart Failure with a Preserved Ejection Fraction.",
+      "doi": "10.1056/NEJMoa2107038",
+      "verificado": "2026-11-13"
+    },
+    "deliver": {
+      "pmid": "36027570",
+      "citacao": "Solomon et al. N Engl J Med 2022",
+      "titulo": "Dapagliflozin in Heart Failure with Mildly Reduced or Preserved Ejection Fraction.",
+      "doi": "10.1056/NEJMoa2206286",
+      "verificado": "2026-11-13"
+    },
+    "dapackd": {
+      "pmid": "32970396",
+      "citacao": "Heerspink et al. N Engl J Med 2020",
+      "titulo": "Dapagliflozin in Patients with Chronic Kidney Disease.",
+      "doi": "10.1056/NEJMoa2024816",
+      "verificado": "2026-11-13"
+    },
+    "empakidney": {
+      "pmid": "36331190",
+      "citacao": "undefined et al. N Engl J Med 2022",
+      "titulo": "Empagliflozin in Patients with Chronic Kidney Disease.",
+      "doi": "10.1056/NEJMoa2204233",
+      "verificado": "2026-11-13"
+    },
+    "samson": {
+      "pmid": "33196154",
+      "citacao": "Wood et al. N Engl J Med 2020",
+      "titulo": "N-of-1 Trial of a Statin, Placebo, or No Treatment to Assess Side Effects.",
+      "doi": "10.1056/NEJMc2031173",
+      "verificado": "2026-11-13"
+    },
+    "save2016": {
+      "pmid": "27571048",
+      "citacao": "McEvoy et al. N Engl J Med 2016",
+      "titulo": "CPAP for Prevention of Cardiovascular Events in Obstructive Sleep Apnea.",
+      "doi": "10.1056/NEJMoa1606599",
+      "verificado": "2026-11-13"
+    },
+    "direct2018": {
+      "pmid": "29221645",
+      "citacao": "Lean et al. Lancet 2017",
+      "titulo": "Primary care-led weight management for remission of type 2 diabetes (DiRECT): an open-label, cluster-randomised trial.",
+      "doi": "10.1016/S0140-6736(17)33102-1",
+      "verificado": "2026-11-13"
+    },
+    "legacy2015": {
+      "pmid": "25792361",
+      "citacao": "Pathak et al. J Am Coll Cardiol 2015",
+      "titulo": "Long-Term Effect of Goal-Directed Weight Management in an Atrial Fibrillation Cohort: A Long-Term Follow-Up Study (LEGACY).",
+      "doi": "10.1016/j.jacc.2015.03.002",
+      "verificado": "2026-11-13"
+    },
+    "fransen2015": {
+      "pmid": "25569281",
+      "citacao": "Fransen et al. Cochrane Database Syst Rev 2015",
+      "titulo": "Exercise for osteoarthritis of the knee.",
+      "doi": "10.1002/14651858.CD004376.pub3",
+      "verificado": "2026-11-13"
+    },
+    "sherrington2019": {
+      "pmid": "30703272",
+      "citacao": "Sherrington et al. Cochrane Database Syst Rev 2019",
+      "titulo": "Exercise for preventing falls in older people living in the community.",
+      "doi": "10.1002/14651858.CD012424.pub2",
+      "verificado": "2026-11-13"
+    },
+    "empower2014": {
+      "pmid": "24733354",
+      "citacao": "Tannenbaum et al. JAMA Intern Med 2014",
+      "titulo": "Reduction of inappropriate benzodiazepine prescriptions among older adults through direct patient education: the EMPOWER cluster randomized trial.",
+      "doi": "10.1001/jamainternmed.2014.949",
+      "verificado": "2026-11-13"
+    },
+    "operam2021": {
+      "pmid": "34257088",
+      "citacao": "Blum et al. BMJ 2021",
+      "titulo": "Optimizing Therapy to Prevent Avoidable Hospital Admissions in Multimorbid Older Adults (OPERAM): cluster randomised controlled trial.",
+      "doi": "10.1136/bmj.n1585",
+      "verificado": "2026-11-13"
+    },
+    "achieve2023": {
+      "pmid": "37478886",
+      "citacao": "Lin et al. Lancet 2023",
+      "titulo": "Hearing intervention versus health education control to reduce cognitive decline in older adults with hearing loss in the USA (ACHIEVE): a multicentre, randomised controlled trial.",
+      "doi": "10.1016/S0140-6736(23)01406-X",
+      "verificado": "2026-11-13"
+    },
+    "leader2016": {
+      "pmid": "27295427",
+      "citacao": "Marso et al. N Engl J Med 2016",
+      "titulo": "Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes.",
+      "doi": "10.1056/NEJMoa1603827",
+      "verificado": "2026-11-13"
+    }
+  }
+}

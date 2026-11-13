@@ -1,0 +1,47 @@
+{
+  "_nota": "Modificadores → gravidade 0–1. TODAS as tabelas estão a_validar. 'pontos' = interpolação linear entre pontos, com valores fora do intervalo limitados ao primeiro/último. 'relativo_ao_alvo' = o valor é deslocado pela diferença entre o alvo individual e a referência da tabela (ex.: alvo de HbA1c 8 % → HbA1c 8,4 % lê-se como 7,4 %). Vários modificadores no mesmo nó → aplica-se o máximo.",
+  "a_validar": true,
+  "alvos": {
+    "_nota": "Alvos individuais por defeito; o médico pode alterá-los no caso (caso.alvos).",
+    "criterio_fragil": { "cfs_gte": 5, "idade_gte": 80 },
+    "hba1c": { "padrao": 7, "fragil": 8, "unidade": "%" },
+    "pas":   { "padrao": 130, "fragil": 140, "unidade": "mmHg" },
+    "pad":   { "padrao": 80, "fragil": 90, "unidade": "mmHg" }
+  },
+  "tabelas": [
+    { "id": "imc_obesidade", "no": "obesidade", "parametro": "imc", "unidade": "kg/m²", "pontos": [[30, 0.3], [35, 0.5], [40, 0.7], [45, 0.9]] },
+    { "id": "imc_excesso", "no": "excesso_peso", "parametro": "imc", "unidade": "kg/m²", "pontos": [[25, 0.15], [30, 0.3]] },
+    { "id": "hba1c", "no": "dm2", "parametro": "hba1c", "unidade": "%", "relativo_ao_alvo": { "alvo": "hba1c", "referencia": 7 }, "pontos": [[6, 0.15], [7, 0.3], [8, 0.5], [9, 0.7], [10, 0.9]] },
+    { "id": "pas", "no": "hta", "parametro": "pas", "unidade": "mmHg", "relativo_ao_alvo": { "alvo": "pas", "referencia": 130 }, "pontos": [[120, 0.15], [130, 0.2], [140, 0.35], [150, 0.5], [160, 0.65], [180, 0.85]] },
+    { "id": "pad", "no": "hta", "parametro": "pad", "unidade": "mmHg", "relativo_ao_alvo": { "alvo": "pad", "referencia": 80 }, "pontos": [[80, 0.2], [90, 0.4], [100, 0.6], [110, 0.85]] },
+    { "id": "nyha", "no": "ic", "parametro": "nyha", "discreto": { "1": 0.2, "2": 0.4, "3": 0.65, "4": 0.9 } },
+    { "id": "auditc", "no": "alcool", "parametro": "auditc", "pontos": [[4, 0.3], [6, 0.5], [8, 0.75], [10, 0.9]], "ajuste_sexo": { "F": 1 }, "_ajuste": "Mulheres: +1 ponto (limiar de positividade 3 em vez de 4)" },
+    { "id": "cfs", "no": "fragilidade", "parametro": "cfs", "discreto": { "4": 0.3, "5": 0.45, "6": 0.6, "7": 0.75, "8": 0.9, "9": 0.95 }, "instancia_se": { "gte": 4 } },
+    { "id": "phq9", "no": "depressao", "parametro": "phq9", "pontos": [[5, 0.25], [10, 0.45], [15, 0.65], [20, 0.85]] },
+    { "id": "iah", "no": "saos", "parametro": "iah", "unidade": "eventos/h", "pontos": [[5, 0.2], [15, 0.45], [30, 0.7], [50, 0.85]] },
+    { "id": "eva_dor", "no": "dor_limitante", "parametro": "eva_dor", "unidade": "0–10", "pontos": [[0, 0], [10, 1]] },
+    { "id": "n_farmacos", "no": "polimedicacao", "parametro": "n_farmacos", "pontos": [[5, 0.3], [7, 0.45], [10, 0.65], [15, 0.85]], "instancia_se": { "gte": 5 } }
+  ],
+  "kdigo": {
+    "no": "drc",
+    "tfg": [[90, "G1"], [60, "G2"], [45, "G3a"], [30, "G3b"], [15, "G4"], [0, "G5"]],
+    "albuminuria": [[300, "A3"], [30, "A2"], [0, "A1"]],
+    "_albuminuria": "RAC em mg/g. Se ausente assume-se A1 e emite-se aviso.",
+    "risco": {
+      "G1":  { "A1": "baixo",    "A2": "moderado",   "A3": "alto" },
+      "G2":  { "A1": "baixo",    "A2": "moderado",   "A3": "alto" },
+      "G3a": { "A1": "moderado", "A2": "alto",       "A3": "muito_alto" },
+      "G3b": { "A1": "alto",     "A2": "muito_alto", "A3": "muito_alto" },
+      "G4":  { "A1": "muito_alto","A2": "muito_alto","A3": "muito_alto" },
+      "G5":  { "A1": "muito_alto","A2": "muito_alto","A3": "muito_alto" }
+    },
+    "gravidade": { "baixo": 0.1, "moderado": 0.3, "alto": 0.55, "muito_alto": 0.8 },
+    "gravidade_G5": 0.9
+  },
+  "score2": {
+    "no": "eventos_cv",
+    "parametro": "risco_cv",
+    "_nota": "Categoria SCORE2/SCORE2-OP opcional; sobrepõe-se à gravidade derivada. DCV estabelecida → muito_alto.",
+    "gravidade": { "baixo": 0.2, "moderado": 0.4, "alto": 0.6, "muito_alto": 0.8 }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "id": "caso-b",
+  "descricao": "Caso B — mulher, 81 anos, frágil (CFS 6), IC-FEr e DRC G3b",
+  "utente": { "idade": 81, "sexo": "F" },
+  "parametros": { "cfs": 6, "tfg": 38 },
+  "problemas": [
+    { "id": "hta" },
+    { "id": "ic", "subtipo": "FEr" },
+    { "id": "drc", "subtipo": "G3b" },
+    { "id": "gonartrose" },
+    { "id": "insonia" }
+  ],
+  "medicacao": [
+    { "dci": "ramipril", "dose": "", "estado": "manter", "indicacao": "tensão / coração" },
+    { "dci": "furosemida", "dose": "", "estado": "manter", "indicacao": "insuficiência cardíaca" },
+    { "dci": "naproxeno", "dose": "", "estado": "manter", "indicacao": "dor nos joelhos" },
+    { "dci": "lorazepam", "dose": "", "estado": "manter", "indicacao": "dormir" }
+  ],
+  "objetivos": [
+    { "id": "obj1", "texto": "Continuar a viver sozinha em casa, sem cair", "nos": ["limitacao_funcional", "quedas"], "_nota": "Objetivo ilustrativo: o enunciado do caso B não define um objetivo." }
+  ],
+  "preferencias": {},
+  "em_curso": [],
+  "overrides": []
+}

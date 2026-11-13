@@ -1,0 +1,270 @@
+{
+  "_nota": "Condições compostas: 'todas' / 'qualquer' (listas de condições), 'classes' (pelo menos uma destas classes na medicação), 'no' (nó presente; 'gravidade_min' opcional), 'idade_gte', 'intervencao' (a intervenção está a ser considerada: ranking ou cenário), 'sinal' (sinal calculado pelo motor). 'resolvido_por' = intervenções que resolvem o alerta; quando o alerta é de gravidade alta, aumenta a urgência (U) dessas intervenções. 'eleva' = o alerta impõe uma gravidade mínima a um nó de risco (sinergia que a combinação 1 − Π não capta). a_validar.",
+  "alertas": [
+    {
+      "id": "triple_whammy",
+      "gravidade": "alta",
+      "titulo": "«Triple whammy»",
+      "mensagem": "IECA/ARA + diurético + AINE: risco elevado de lesão renal aguda.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "ieca",
+              "ara",
+              "arni"
+            ]
+          },
+          {
+            "classes": [
+              "diuretico_ansa",
+              "diuretico_tiazida",
+              "diuretico_poupador_k"
+            ]
+          },
+          {
+            "classes": [
+              "aine"
+            ]
+          }
+        ]
+      },
+      "resolvido_por": [
+        "suspender_aine"
+      ],
+      "refs": [],
+      "a_validar": true,
+      "eleva": [
+        {
+          "no": "lesao_renal",
+          "gravidade_min": 0.7
+        }
+      ]
+    },
+    {
+      "id": "bzd_opioide",
+      "gravidade": "alta",
+      "titulo": "Benzodiazepina + opioide",
+      "mensagem": "Associação com risco de depressão respiratória, sedação excessiva e quedas.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "bzd",
+              "z_hipnotico"
+            ]
+          },
+          {
+            "classes": [
+              "opioide"
+            ]
+          }
+        ]
+      },
+      "resolvido_por": [
+        "desprescricao_bzd"
+      ],
+      "refs": [],
+      "a_validar": true,
+      "eleva": [
+        {
+          "no": "quedas",
+          "gravidade_min": 0.6
+        }
+      ]
+    },
+    {
+      "id": "aine_ic",
+      "gravidade": "alta",
+      "titulo": "AINE em insuficiência cardíaca",
+      "mensagem": "Os AINE promovem retenção hidrossalina e descompensação da IC.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "aine"
+            ]
+          },
+          {
+            "no": "ic"
+          }
+        ]
+      },
+      "resolvido_por": [
+        "suspender_aine"
+      ],
+      "refs": [
+        "arfe2016"
+      ],
+      "eleva": [
+        {
+          "no": "ic_descompensada",
+          "gravidade_min": 0.6
+        }
+      ]
+    },
+    {
+      "id": "aine_drc",
+      "gravidade": "alta",
+      "titulo": "AINE em doença renal crónica",
+      "mensagem": "Os AINE aumentam o risco de lesão renal aguda e de progressão da DRC.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "aine"
+            ]
+          },
+          {
+            "no": "drc"
+          }
+        ]
+      },
+      "resolvido_por": [
+        "suspender_aine"
+      ],
+      "refs": [],
+      "a_validar": true
+    },
+    {
+      "id": "aine_antitrombotico",
+      "gravidade": "alta",
+      "titulo": "AINE + antitrombótico",
+      "mensagem": "Risco aumentado de hemorragia digestiva.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "aine"
+            ]
+          },
+          {
+            "classes": [
+              "anticoagulante",
+              "antiagregante"
+            ]
+          }
+        ]
+      },
+      "resolvido_por": [
+        "suspender_aine"
+      ],
+      "refs": [],
+      "a_validar": true,
+      "eleva": [
+        {
+          "no": "hemorragia_dig",
+          "gravidade_min": 0.6
+        }
+      ]
+    },
+    {
+      "id": "bzd_idoso",
+      "gravidade": "moderada",
+      "titulo": "Benzodiazepina/hipnótico Z em idade ≥ 65 anos",
+      "mensagem": "Potencialmente inapropriado (critérios STOPP/Beers): quedas, fraturas, declínio cognitivo.",
+      "condicao": {
+        "todas": [
+          {
+            "classes": [
+              "bzd",
+              "z_hipnotico"
+            ]
+          },
+          {
+            "idade_gte": 65
+          }
+        ]
+      },
+      "resolvido_por": [
+        "desprescricao_bzd"
+      ],
+      "refs": [
+        "woolcott2009"
+      ]
+    },
+    {
+      "id": "isglt2_fragilidade",
+      "gravidade": "moderada",
+      "titulo": "iSGLT2 e risco de depleção de volume",
+      "mensagem": "Utente frágil, com idade ≥ 80 anos ou sob diurético de ansa: vigiar a volemia e a função renal; reavaliar o diurético (decisão médica).",
+      "condicao": {
+        "todas": [
+          {
+            "intervencao": "isglt2"
+          },
+          {
+            "qualquer": [
+              {
+                "no": "fragilidade"
+              },
+              {
+                "classes": [
+                  "diuretico_ansa"
+                ]
+              },
+              {
+                "idade_gte": 80
+              }
+            ]
+          }
+        ]
+      },
+      "resolvido_por": [],
+      "refs": [],
+      "a_validar": true
+    },
+    {
+      "id": "glp1_fragilidade",
+      "gravidade": "moderada",
+      "titulo": "GLP-1/GIP e fragilidade",
+      "mensagem": "Risco de perda de massa magra e sarcopenia: garantir aporte proteico e exercício de força; ponderar o benefício esperado.",
+      "condicao": {
+        "todas": [
+          {
+            "intervencao": "glp1_gip"
+          },
+          {
+            "no": "fragilidade"
+          }
+        ]
+      },
+      "resolvido_por": [],
+      "refs": [],
+      "a_validar": true
+    },
+    {
+      "id": "antidepressivo_idoso",
+      "gravidade": "moderada",
+      "titulo": "Antidepressivo em idade ≥ 75 anos",
+      "mensagem": "ISRS/IRSN: risco de hiponatremia e de quedas. Vigiar o sódio.",
+      "condicao": {
+        "todas": [
+          {
+            "intervencao": "antidepressivo"
+          },
+          {
+            "idade_gte": 75
+          }
+        ]
+      },
+      "resolvido_por": [],
+      "refs": [],
+      "a_validar": true
+    },
+    {
+      "id": "sobretratamento_glicemico",
+      "gravidade": "moderada",
+      "titulo": "Possível sobretratamento glicémico",
+      "mensagem": "HbA1c claramente abaixo do alvo individual num utente frágil/idoso, sob fármaco com risco de hipoglicemia (insulina ou sulfonilureia).",
+      "condicao": {
+        "sinal": "sobretratamento_glicemico"
+      },
+      "resolvido_por": [
+        "desintensificacao_hipoglicemiantes"
+      ],
+      "refs": [],
+      "a_validar": true
+    }
+  ]
+}

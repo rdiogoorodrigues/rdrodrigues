@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "caso-a",
+  "descricao": "Caso A — homem, 62 anos, síndrome metabólica com gonartrose",
+  "utente": { "idade": 62, "sexo": "M" },
+  "parametros": { "imc": 36, "hba1c": 8.4, "phq9": 7 },
+  "problemas": [
+    { "id": "obesidade" },
+    { "id": "dm2" },
+    { "id": "hta" },
+    { "id": "gonartrose", "subrotulo": "bilateral" },
+    { "id": "saos" },
+    { "id": "depressao", "subrotulo": "ligeira" },
+    { "id": "sedentarismo" },
+    { "id": "rede_apoio", "subrotulo": "vive com a esposa" }
+  ],
+  "medicacao": [
+    { "dci": "ibuprofeno", "dose": "", "estado": "manter", "indicacao": "dor nos joelhos" },
+    { "dci": "metformina", "dose": "", "estado": "manter", "indicacao": "diabetes" },
+    { "dci": "amlodipina", "dose": "", "estado": "manter", "indicacao": "tensão arterial" }
+  ],
+  "objetivos": [
+    { "id": "obj1", "texto": "Voltar a caminhar com os netos", "nos": ["mobilidade_reduzida"] }
+  ],
+  "preferencias": {},
+  "em_curso": [],
+  "overrides": []
+}

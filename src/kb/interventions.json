@@ -1,0 +1,1177 @@
+{
+  "_nota": "magnitude: + pequeno · ++ moderado · +++ grande (fração de redução da gravidade em config.json). horizonte: S semanas · M meses · A anos. 'cria' = agravamentos ou novos nós introduzidos. 'classes_em_curso' = se o utente já toma um fármaco destas classes, a intervenção aparece como 'em curso'. 'acrescentado': true = efeito que não constava do seed. A app NUNCA sugere doses.",
+  "categorias": {
+    "farmacologica": "Farmacológica",
+    "dispositivo": "Dispositivo",
+    "estilo_vida": "Estilo de vida",
+    "desprescricao": "Desprescrição",
+    "social": "Social",
+    "sensorial": "Sensorial"
+  },
+  "intervencoes": [
+    {
+      "id": "glp1_gip",
+      "rotulo": "Agonista GLP-1 / GIP-GLP-1 (semaglutido, tirzepatido)",
+      "rotulo_utente": "Medicamento injetável para o peso e a diabetes",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "agonista_glp1"
+      ],
+      "requer": {
+        "algum_no": [
+          "obesidade",
+          "excesso_peso",
+          "dm2"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "obesidade",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": [
+            "step1",
+            "surmount1"
+          ]
+        },
+        {
+          "alvo": "dm2",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [
+            "surmount1"
+          ]
+        },
+        {
+          "alvo": "saos",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": [
+            "surmountosa"
+          ]
+        },
+        {
+          "alvo": "ic",
+          "subtipo": "FEp",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "stephfpef",
+            "summit"
+          ]
+        },
+        {
+          "alvo": "gonartrose",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "step9"
+          ],
+          "nota": "Dor e função"
+        },
+        {
+          "alvo": "masld",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "essence"
+          ]
+        },
+        {
+          "alvo": "eventos_cv",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": [
+            "select",
+            "leader2016"
+          ]
+        },
+        {
+          "alvo": "drc",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": [
+            "flow"
+          ]
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "+",
+          "horizonte": "S",
+          "refs": [
+            "step1"
+          ]
+        }
+      ],
+      "custos": [
+        {
+          "id": "gi",
+          "rotulo": "Efeitos gastrointestinais (náuseas, vómitos, obstipação)",
+          "categoria": "moderado"
+        },
+        {
+          "id": "massa_magra",
+          "rotulo": "Perda de massa magra",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "fragilidade",
+              "fator": 2
+            }
+          ]
+        },
+        {
+          "id": "custo",
+          "rotulo": "Custo / comparticipação limitada",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "carencia_economica",
+              "fator": 1.5
+            }
+          ]
+        },
+        {
+          "id": "aspiracao",
+          "rotulo": "Risco de aspiração em anestesia/sedação (esvaziamento gástrico lento)",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "isglt2",
+      "rotulo": "Inibidor do SGLT2 (dapagliflozina, empagliflozina)",
+      "rotulo_utente": "Medicamento que protege o coração e os rins",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "isglt2"
+      ],
+      "requer": {
+        "algum_no": [
+          "ic",
+          "drc",
+          "dm2"
+        ]
+      },
+      "contraindicacoes": [
+        {
+          "parametro": "tfg",
+          "lt": 20,
+          "mensagem": "TFG < 20 mL/min/1,73 m²: não iniciar."
+        }
+      ],
+      "efeitos": [
+        {
+          "alvo": "ic",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [
+            "dapahf",
+            "emperorp",
+            "deliver"
+          ]
+        },
+        {
+          "alvo": "drc",
+          "magnitude": "+++",
+          "horizonte": "A",
+          "refs": [
+            "dapackd",
+            "empakidney"
+          ]
+        },
+        {
+          "alvo": "dm2",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "+",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "obesidade",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "genital",
+          "rotulo": "Infeções genitais micóticas",
+          "categoria": "menor"
+        },
+        {
+          "id": "cad",
+          "rotulo": "Cetoacidose euglicémica (rara)",
+          "categoria": "menor"
+        },
+        {
+          "id": "volume",
+          "rotulo": "Depleção de volume / desidratação",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "fragilidade",
+              "fator": 1.5
+            },
+            {
+              "classe": "diuretico_ansa",
+              "fator": 1.33
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "metformina",
+      "rotulo": "Metformina",
+      "rotulo_utente": "Medicamento para a diabetes (metformina)",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "metformina"
+      ],
+      "requer": {
+        "algum_no": [
+          "dm2"
+        ]
+      },
+      "contraindicacoes": [
+        {
+          "parametro": "tfg",
+          "lt": 30,
+          "mensagem": "TFG < 30 mL/min/1,73 m²: contraindicada."
+        }
+      ],
+      "efeitos": [
+        {
+          "alvo": "dm2",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": [
+            "dpp2002"
+          ]
+        },
+        {
+          "alvo": "obesidade",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "cria": [
+        {
+          "tipo": "novo_no",
+          "no": "defice_b12",
+          "gravidade": 0.2,
+          "horizonte": "A",
+          "nota": "Défice de B12 com uso prolongado → neuropatia, anemia. Doseamento periódico."
+        }
+      ],
+      "custos": [
+        {
+          "id": "gi",
+          "rotulo": "Efeitos gastrointestinais",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "ieca_ara",
+      "rotulo": "IECA / ARA",
+      "rotulo_utente": "Medicamento para a tensão que protege rins e coração",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "ieca",
+        "ara",
+        "arni"
+      ],
+      "requer": {
+        "algum_no": [
+          "hta",
+          "drc",
+          "ic"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "hta",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": [
+            "ettehad2016"
+          ]
+        },
+        {
+          "alvo": "drc",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": [],
+          "nota": "Sobretudo se albuminúria (A2–A3)"
+        },
+        {
+          "alvo": "ic",
+          "subtipo": "FEr",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "k",
+          "rotulo": "Hipercaliemia",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "drc",
+              "fator": 1.5
+            }
+          ]
+        },
+        {
+          "id": "lra",
+          "rotulo": "Lesão renal aguda",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "classe": "aine",
+              "fator": 1.5
+            }
+          ]
+        },
+        {
+          "id": "tosse",
+          "rotulo": "Tosse (IECA)",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "estatina",
+      "rotulo": "Estatina",
+      "rotulo_utente": "Medicamento para o colesterol",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "estatina"
+      ],
+      "requer": {
+        "algum_no": [
+          "eventos_cv",
+          "dislipidemia"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "eventos_cv",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "mialgias",
+          "rotulo": "Mialgias (em grande parte efeito nocebo — SAMSON)",
+          "categoria": "menor",
+          "refs": [
+            "samson"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "antidepressivo",
+      "rotulo": "Antidepressivo",
+      "rotulo_utente": "Medicamento para a depressão",
+      "categoria": "farmacologica",
+      "classes_em_curso": [
+        "isrs",
+        "irsn",
+        "mirtazapina",
+        "antidepressivo_triciclico",
+        "antidepressivo_outro"
+      ],
+      "requer": {
+        "algum_no": [
+          "depressao",
+          "ansiedade"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "depressao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "variantes": [
+        {
+          "id": "duloxetina",
+          "rotulo": "Duloxetina",
+          "efeitos_extra": [
+            {
+              "alvo": "gonartrose",
+              "magnitude": "++",
+              "horizonte": "M",
+              "refs": [],
+              "nota": "Dor gonartrósica"
+            }
+          ]
+        },
+        {
+          "id": "mirtazapina",
+          "rotulo": "Mirtazapina",
+          "cria": [
+            {
+              "tipo": "agrava",
+              "alvo": "obesidade",
+              "magnitude": "+",
+              "horizonte": "M",
+              "nota": "Aumento ponderal"
+            }
+          ]
+        }
+      ],
+      "custos": [
+        {
+          "id": "na",
+          "rotulo": "Hiponatremia",
+          "categoria": "menor",
+          "amplificadores": [
+            {
+              "parametro": "idade",
+              "gte": 75,
+              "fator": 2
+            }
+          ]
+        },
+        {
+          "id": "quedas",
+          "rotulo": "Quedas (ISRS no idoso)",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "fragilidade",
+              "fator": 1.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpap",
+      "rotulo": "CPAP",
+      "rotulo_utente": "Máquina para respirar melhor durante o sono (CPAP)",
+      "categoria": "dispositivo",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "saos"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "saos",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "depressao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [],
+          "nota": "Humor e fadiga"
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "efeitos_nulos": [
+        {
+          "alvo": "eventos_cv",
+          "refs": [
+            "save2016"
+          ],
+          "nota": "Sem redução de eventos CV (SAVE)"
+        }
+      ],
+      "custos": [
+        {
+          "id": "adesao",
+          "rotulo": "Adesão difícil (desconforto da máscara)",
+          "categoria": "moderado"
+        }
+      ]
+    },
+    {
+      "id": "perda_ponderal_estruturada",
+      "rotulo": "Programa estruturado de perda ponderal",
+      "rotulo_utente": "Plano acompanhado para perder peso",
+      "categoria": "estilo_vida",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "obesidade",
+          "excesso_peso"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "obesidade",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [],
+          "acrescentado": true
+        },
+        {
+          "alvo": "dm2",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": [
+            "direct2018"
+          ],
+          "nota": "Possível remissão"
+        },
+        {
+          "alvo": "masld",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "neter2003"
+          ]
+        },
+        {
+          "alvo": "gonartrose",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "idea2013"
+          ]
+        },
+        {
+          "alvo": "saos",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "peppard2000jama"
+          ]
+        },
+        {
+          "alvo": "fa",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "legacy2015"
+          ]
+        }
+      ],
+      "custos": [
+        {
+          "id": "adesao",
+          "rotulo": "Adesão e manutenção a longo prazo",
+          "categoria": "moderado"
+        }
+      ]
+    },
+    {
+      "id": "exercicio",
+      "rotulo": "Exercício físico prescrito (aeróbio + força + equilíbrio)",
+      "rotulo_utente": "Exercício físico adaptado",
+      "categoria": "estilo_vida",
+      "classes_em_curso": [],
+      "requer": {},
+      "efeitos": [
+        {
+          "alvo": "gonartrose",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "fransen2015"
+          ]
+        },
+        {
+          "alvo": "quedas",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "sherrington2019"
+          ]
+        },
+        {
+          "alvo": "depressao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "dm2",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "mobilidade_reduzida",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "fragilidade",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "sedentarismo",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [],
+          "acrescentado": true
+        },
+        {
+          "alvo": "obesidade",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "adesao",
+          "rotulo": "Adesão",
+          "categoria": "menor"
+        },
+        {
+          "id": "dor",
+          "rotulo": "Desconforto/dor inicial",
+          "categoria": "menor"
+        },
+        {
+          "id": "supervisao",
+          "rotulo": "Exige adaptação/supervisão (risco de queda durante o exercício)",
+          "categoria": "menor",
+          "amplificadores": [
+            {
+              "no": "fragilidade",
+              "fator": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cessacao_tabagica",
+      "rotulo": "Cessação tabágica",
+      "rotulo_utente": "Deixar de fumar",
+      "categoria": "estilo_vida",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "tabaco"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "tabaco",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [],
+          "acrescentado": true
+        },
+        {
+          "alvo": "eventos_cv",
+          "magnitude": "+++",
+          "horizonte": "A",
+          "refs": []
+        },
+        {
+          "alvo": "dap",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": []
+        },
+        {
+          "alvo": "dpoc",
+          "magnitude": "++",
+          "horizonte": "A",
+          "refs": []
+        }
+      ],
+      "cria": [
+        {
+          "tipo": "agrava",
+          "alvo": "obesidade",
+          "magnitude": "+",
+          "horizonte": "S",
+          "nota": "Aumento ponderal transitório"
+        }
+      ],
+      "custos": [
+        {
+          "id": "abstinencia",
+          "rotulo": "Sintomas de abstinência",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "reducao_alcool",
+      "rotulo": "Redução / abstinência de álcool",
+      "rotulo_utente": "Reduzir ou parar o álcool",
+      "categoria": "estilo_vida",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "alcool"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "alcool",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [],
+          "acrescentado": true
+        },
+        {
+          "alvo": "masld",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": [
+            "roerecke2017"
+          ]
+        },
+        {
+          "alvo": "fa",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "voskoboinik2020"
+          ]
+        },
+        {
+          "alvo": "quedas",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "depressao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "abstinencia",
+          "rotulo": "Síndrome de abstinência (se consumo elevado)",
+          "categoria": "moderado"
+        }
+      ]
+    },
+    {
+      "id": "tcc_insonia",
+      "rotulo": "Terapia cognitivo-comportamental para a insónia (TCC-I)",
+      "rotulo_utente": "Treino para dormir melhor sem comprimidos",
+      "categoria": "estilo_vida",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "insonia",
+          "sono",
+          "benzodiazepinas"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "insonia",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "sono",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "depressao",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "sinergias": [
+        {
+          "intervencao": "desprescricao_bzd",
+          "nota": "Facilita a desprescrição de benzodiazepinas"
+        }
+      ],
+      "custos": [
+        {
+          "id": "acesso",
+          "rotulo": "Acesso / disponibilidade",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "suspender_aine",
+      "rotulo": "Suspender AINE crónico",
+      "rotulo_utente": "Parar o anti-inflamatório diário",
+      "categoria": "desprescricao",
+      "classes_em_curso": [],
+      "requer": {
+        "alguma_classe": [
+          "aine"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "aine_cronico",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": [],
+          "acrescentado": true
+        },
+        {
+          "alvo": "hta",
+          "magnitude": "+",
+          "horizonte": "S",
+          "refs": [
+            "johnson1994"
+          ]
+        },
+        {
+          "alvo": "lesao_renal",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "ic_descompensada",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": [
+            "arfe2016"
+          ]
+        },
+        {
+          "alvo": "hemorragia_dig",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": []
+        }
+      ],
+      "ponte": {
+        "obrigatoria": true,
+        "opcoes": [
+          {
+            "intervencao": "exercicio",
+            "rotulo": "Exercício terapêutico"
+          },
+          {
+            "rotulo": "AINE tópico"
+          },
+          {
+            "rotulo": "Paracetamol"
+          },
+          {
+            "intervencao": "antidepressivo",
+            "variante": "duloxetina",
+            "rotulo": "Duloxetina"
+          }
+        ],
+        "custo_sem_ponte": {
+          "id": "dor",
+          "rotulo": "Agravamento da dor sem analgesia alternativa",
+          "categoria": "major"
+        },
+        "custo_com_ponte": {
+          "id": "dor",
+          "rotulo": "Possível agravamento transitório da dor",
+          "categoria": "menor"
+        }
+      },
+      "custos": []
+    },
+    {
+      "id": "desprescricao_bzd",
+      "rotulo": "Desprescrição de benzodiazepinas / hipnóticos Z",
+      "rotulo_utente": "Reduzir aos poucos os comprimidos para dormir",
+      "categoria": "desprescricao",
+      "classes_em_curso": [],
+      "requer": {
+        "alguma_classe": [
+          "bzd",
+          "z_hipnotico"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "benzodiazepinas",
+          "magnitude": "+++",
+          "horizonte": "M",
+          "refs": [
+            "empower2014"
+          ],
+          "acrescentado": true
+        },
+        {
+          "alvo": "quedas",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": [
+            "woolcott2009"
+          ]
+        }
+      ],
+      "beneficios_qualitativos": [
+        "Cognição: melhoria ligeira possível"
+      ],
+      "ponte": {
+        "obrigatoria": true,
+        "opcoes": [
+          {
+            "rotulo": "Redução gradual (esquema definido pelo médico)"
+          },
+          {
+            "intervencao": "tcc_insonia",
+            "rotulo": "TCC para a insónia"
+          }
+        ],
+        "custo_sem_ponte": {
+          "id": "abstinencia",
+          "rotulo": "Insónia de rebound / síndrome de abstinência (suspensão abrupta)",
+          "categoria": "major"
+        },
+        "custo_com_ponte": {
+          "id": "rebound",
+          "rotulo": "Insónia de rebound transitória",
+          "categoria": "menor"
+        }
+      },
+      "custos": []
+    },
+    {
+      "id": "revisao_medicacao_stopp_start",
+      "rotulo": "Revisão da medicação (STOPP/START)",
+      "rotulo_utente": "Rever todos os medicamentos",
+      "categoria": "desprescricao",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "polimedicacao"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "polimedicacao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "ma_adesao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "quedas",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": [
+            "operam2021"
+          ],
+          "nota": "Desfechos duros: benefício incerto"
+        }
+      ],
+      "ajuste_evidencia": {
+        "fator": 0.6,
+        "motivo": "OPERAM: sem redução de reinternamentos relacionados com fármacos",
+        "refs": [
+          "operam2021"
+        ]
+      },
+      "custos": [
+        {
+          "id": "tempo",
+          "rotulo": "Tempo de consulta",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "educacao_terapeutica",
+      "rotulo": "Educação terapêutica",
+      "rotulo_utente": "Sessões para perceber melhor a doença e o tratamento",
+      "categoria": "social",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "ma_adesao",
+          "baixa_literacia"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "ma_adesao",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "baixa_literacia",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "tempo",
+          "rotulo": "Tempo / recursos da equipa",
+          "categoria": "menor"
+        }
+      ]
+    },
+    {
+      "id": "prescricao_social",
+      "rotulo": "Prescrição social",
+      "rotulo_utente": "Ligação a atividades e grupos na comunidade",
+      "categoria": "social",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "isolamento"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "isolamento",
+          "magnitude": "+",
+          "horizonte": "M",
+          "refs": []
+        }
+      ],
+      "ajuste_evidencia": {
+        "fator": 0.5,
+        "motivo": "Evidência fraca",
+        "refs": []
+      },
+      "custos": []
+    },
+    {
+      "id": "proteses_auditivas",
+      "rotulo": "Próteses auditivas",
+      "rotulo_utente": "Aparelho auditivo",
+      "categoria": "sensorial",
+      "classes_em_curso": [],
+      "requer": {
+        "algum_no": [
+          "hipoacusia"
+        ]
+      },
+      "efeitos": [
+        {
+          "alvo": "hipoacusia",
+          "magnitude": "+++",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "isolamento",
+          "magnitude": "++",
+          "horizonte": "M",
+          "refs": []
+        },
+        {
+          "alvo": "demencia",
+          "magnitude": "+",
+          "horizonte": "A",
+          "refs": [
+            "achieve2023"
+          ],
+          "nota": "Benefício só no subgrupo de alto risco (ACHIEVE)"
+        }
+      ],
+      "custos": [
+        {
+          "id": "custo",
+          "rotulo": "Custo",
+          "categoria": "moderado",
+          "amplificadores": [
+            {
+              "no": "carencia_economica",
+              "fator": 1.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "desintensificacao_hipoglicemiantes",
+      "rotulo": "Desintensificar a terapêutica hipoglicemiante",
+      "rotulo_utente": "Ajustar os medicamentos da diabetes para evitar hipoglicemias",
+      "categoria": "desprescricao",
+      "classes_em_curso": [],
+      "a_validar": true,
+      "acrescentado": true,
+      "requer": {
+        "sinal": "sobretratamento_glicemico"
+      },
+      "efeitos": [
+        {
+          "alvo": "quedas",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": []
+        },
+        {
+          "alvo": "efeito_adverso",
+          "magnitude": "++",
+          "horizonte": "S",
+          "refs": []
+        }
+      ],
+      "custos": [
+        {
+          "id": "hiperglicemia",
+          "rotulo": "Hiperglicemia sintomática se desintensificação excessiva",
+          "categoria": "menor"
+        }
+      ]
+    }
+  ]
+}
