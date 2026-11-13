@@ -4,6 +4,8 @@ Ferramenta de apoio à decisão para Medicina Geral e Familiar (MGF) em Portugal
 
 Toda a interface é em **português europeu (PT-PT)**, com terminologia clínica correta.
 
+**Posicionamento:** protótipo de investigação. A ferramenta torna explícito, transparente e contestável o raciocínio de priorização; **não** afirma produzir a ordem ótima. Os coeficientes são escolhas de desenho não validadas. Ver `docs/validacao/protocolo.md` (inclui o enquadramento MDR: regra 11, classe ≥ IIa se houver uso clínico).
+
 ## Princípios inegociáveis
 1. **Privacidade:** 100 % client-side. Nenhum dado sai do browser. Não há chamadas de rede em runtime (`fetch`, XHR, WebSocket, beacons, fontes e imagens remotas) nem analytics. Sem identificadores pessoais: apenas idade, sexo e dados clínicos.
 2. **Offline:** o produto final é UM ficheiro (`dist/mapa-causal.html`) com todas as bibliotecas embutidas, nunca via CDN. A CSP do HTML final inclui `connect-src 'none'`.
@@ -11,6 +13,7 @@ Toda a interface é em **português europeu (PT-PT)**, com terminologia clínica
 4. **Honestidade:** efeitos apresentados como categorias/intervalos, sem falsa precisão. Mostrar sempre benefícios **e** custos. Assinalar visualmente tudo o que está marcado `a_validar`.
 5. **Sem doses:** a app nunca sugere doses. A medicação (incluindo a dose) é introduzida pelo médico.
 6. **Aviso permanente:** "Ferramenta de apoio à decisão; não substitui o juízo clínico."
+7. **Robustez visível:** qualquer posição no ranking mostrada na UI é acompanhada da sua estabilidade (análise de sensibilidade: intervalo P5–P95 e P(top 3)). Nunca mostrar só a posição pontual.
 
 ## Estrutura
 ```
@@ -24,6 +27,9 @@ src/kb/*.json      base de conhecimento editável (separada do código)
   alerts.json        regras de alertas de combinação
   config.json        TODOS os coeficientes do motor (a_validar)
 src/engine/        motor puro: sem DOM, sem I/O, kb/config injetados; testável em Node
+  sensitivity.js     Monte Carlo + tornado sobre coeficientes e gravidades por defeito
+scripts/           exportar-delphi.js (questionário RAND/UCLA), sensibilidade.js (relatório)
+docs/validacao/    protocolo de validação, relatório de sensibilidade, CSV Delphi
 src/ui/            interface (vanilla JS, ES modules)
 src/cases/         casos de teste pré-carregados (A, B)
 tests/             node --test
@@ -42,6 +48,9 @@ build.js           gera dist/mapa-causal.html com tudo inline (esbuild)
 ## Comandos
 - `npm test`: testes do motor e dos casos A/B (correr no fim de cada fase).
 - `npm run build`: gera `dist/mapa-causal.html`.
+- `npm run sensibilidade`: regenera `docs/validacao/sensibilidade.md` (correr após mudar KB/config).
+- `npm run delphi`: regenera os CSV do Delphi a partir da KB.
+- Quando um item é validado em Delphi: `"a_validar": false` + `"validado": "Delphi R<n>, mediana <m>"`.
 
 ## Fases
 1. Estrutura, KB, motor e testes · 2. Vistas 3D · 3. Simulador · 4. Modo utente e impressão · 5. Build offline e acessibilidade. Parar no fim de cada fase para validação clínica.

@@ -287,6 +287,78 @@
       "titulo": "Liraglutide and Cardiovascular Outcomes in Type 2 Diabetes.",
       "doi": "10.1056/NEJMoa1603827",
       "verificado": "2026-11-13"
+    },
+    "thokala2016": {
+      "pmid": "26797229",
+      "citacao": "Thokala et al. Value Health 2016",
+      "titulo": "Multiple Criteria Decision Analysis for Health Care Decision Making--An Introduction: Report 1 of the ISPOR MCDA Emerging Good Practices Task Force.",
+      "doi": "10.1016/j.jval.2015.12.003",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "marsh2016": {
+      "pmid": "27021745",
+      "citacao": "Marsh et al. Value Health 2016",
+      "titulo": "Multiple Criteria Decision Analysis for Health Care Decision Making--Emerging Good Practices: Report 2 of the ISPOR MCDA Emerging Good Practices Task Force.",
+      "doi": "10.1016/j.jval.2015.12.016",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "kent2020path": {
+      "pmid": "31711134",
+      "citacao": "Kent et al. Ann Intern Med 2020",
+      "titulo": "The Predictive Approaches to Treatment effect Heterogeneity (PATH) Statement.",
+      "doi": "10.7326/M18-3667",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "tinetti2019": {
+      "pmid": "31589281",
+      "citacao": "Tinetti et al. JAMA Intern Med 2019",
+      "titulo": "Association of Patient Priorities-Aligned Decision-Making With Patient Outcomes and Ambulatory Health Care Burden Among Older Adults With Multiple Chronic Conditions: A Nonrandomized Clinical Trial.",
+      "doi": "10.1001/jamainternmed.2019.4235",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "muth2014": {
+      "pmid": "25484244",
+      "citacao": "Muth et al. BMC Med 2014",
+      "titulo": "The Ariadne principles: how to handle multimorbidity in primary care consultations.",
+      "doi": "10.1186/s12916-014-0223-1",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "salomon2015": {
+      "pmid": "26475018",
+      "citacao": "Salomon et al. Lancet Glob Health 2015",
+      "titulo": "Disability weights for the Global Burden of Disease 2013 study.",
+      "doi": "10.1016/S2214-109X(15)00069-8",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "yourman2021": {
+      "pmid": "33196766",
+      "citacao": "Yourman et al. JAMA Intern Med 2021",
+      "titulo": "Evaluation of Time to Benefit of Statins for the Primary Prevention of Cardiovascular Events in Adults Aged 50 to 75 Years: A Meta-analysis.",
+      "doi": "10.1001/jamainternmed.2020.6084",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "hidalgo2009": {
+      "pmid": "19360091",
+      "citacao": "Hidalgo et al. PLoS Comput Biol 2009",
+      "titulo": "A dynamic network approach for the study of human phenotypes.",
+      "doi": "10.1371/journal.pcbi.1000353",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
+    },
+    "jones1995": {
+      "pmid": "7640549",
+      "citacao": "Jones & Hunter. BMJ 1995",
+      "titulo": "Consensus methods for medical and health services research.",
+      "doi": "10.1136/bmj.311.7001.376",
+      "verificado": "2026-11-13",
+      "tipo": "metodologia"
     }
   }
 }

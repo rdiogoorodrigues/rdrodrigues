@@ -85,5 +85,26 @@
     ]
   },
 
-  "polimedicacao_min": 5
+  "polimedicacao_min": 5,
+
+  "sensibilidade": {
+    "_nota": "Monte Carlo sobre os coeficientes (multiplicador uniforme 1 ± amplitude, preservando a ordem forte > moderada > fraca, + < ++ < +++, menor < moderado < major) e sobre as gravidades que usaram o valor por defeito (uniforme no intervalo). Semente fixa: resultados reprodutíveis.",
+    "n": 500,
+    "semente": 20261113,
+    "amplitudes": {
+      "forca_peso": 0.3,
+      "transmissao": 0.3,
+      "magnitude": 0.3,
+      "custos": 0.5,
+      "peso_desfecho": 0.5,
+      "urgencia": 0.5,
+      "objetivo": 0.5,
+      "adesao": 0.5,
+      "centralidade": 0.3,
+      "subtipo": 0.4
+    },
+    "gravidade_defeito_intervalo": [0.3, 0.7],
+    "estabilidade": { "estavel_max_amplitude": 1, "moderada_max_amplitude": 3 },
+    "percentis": [5, 95]
+  }
 }

@@ -7,9 +7,10 @@ test('KB sem erros de integridade referencial', () => {
   assert.deepEqual(validarKB(kb), []);
 });
 
-test('41 referências, todas com PMID numérico e link PubMed', () => {
+test('41 referências clínicas + metodológicas, todas com PMID numérico e link PubMed', () => {
   const refs = Object.values(kb.referencias);
-  assert.equal(refs.length, 41);
+  assert.equal(refs.filter((r) => r.tipo !== 'metodologia').length, 41);
+  assert.ok(refs.some((r) => r.tipo === 'metodologia'));
   for (const r of refs) {
     assert.match(r.pmid, /^\d{6,9}$/);
     assert.equal(urlPubMed(r.pmid), `https://pubmed.ncbi.nlm.nih.gov/${r.pmid}/`);
